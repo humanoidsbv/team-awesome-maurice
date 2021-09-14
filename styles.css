@@ -17,68 +17,57 @@ body {
 }
 
 /* Header section */
-.Rectangle-2 {
-    width: 100%;
-    height: 50px;
+.Rectangle-1 {
+    align-items: center;
     background-color: #4f88ef;
     display: flex;
+    height: 50px;
     justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 .team-awesome {
-    font-family: Bello;
     color: #fff;
+    font-family: Bello;
     font-size: 26px;
 }
 
 .modal-btn {
+    background: url('./utils/group.svg') no-repeat center;
+    border: none;
+    cursor: pointer;
     display: flex;
+    padding: 20px;
     position: absolute;
     right: 6px;
-    background-color: #4f88ef;
-    background: url('./utils/group.svg') no-repeat center;
-    padding: 20px;
-    border: none;
 }
 
 .modal-btn-cross {
-    display: flex;
-    position: absolute;
-    right: 6px;
-    background-color: #4f88ef;
     background: url('./utils/shape.svg') no-repeat center;
-    padding: 20px;
-    border: none;
 }
-
 
 /* Modal section */
 .modal-content {
+    align-items: center;
+    background-color: #4f88ef;
     display: none;
     flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    background-color: #4f88ef;
     height: 100vh;
+    padding-top: 50px;
 }
 
 .modal-content-toggle {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    background-color: #4f88ef;
-    height: 100vh;
 }
 
 .nav-item {
-    margin: 24px;
-    font-family: proximanova;
-    font-weight: 500;
-    font-size: 24px;
-    text-decoration: none;
     color: #fff;
+    font-family: proximanova;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    text-decoration: none;
 }
 
 .active {

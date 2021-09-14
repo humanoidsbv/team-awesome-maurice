@@ -5,30 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" type="text/css"/>
+    <link rel="stylesheet" href="mediaqueries.css" type="text/css"/>
     <title>Team Awesome</title>
 </head>
 <body>
     
-    <header class="Rectangle-2">
-        <span class="team-awesome">
-            team awesome
-        </span>
+    <header class="Rectangle-1">
+        <h1 class="team-awesome">team awesome</h1>
         <button id="btn" class="modal-btn"></button>
+        <nav>
+            <ul class="nav">
+                <li><a class="nav-item active" href="#">Timesheets</a></li>
+                <li><a class="nav-item" href="#">Team members</a></li>
+                <li><a class="nav-item" href="#">Projects</a></li>
+                <li><a class="nav-item" href="#">Clients</a></li>
+                <li><a class="nav-item" href="#">Documents</a></li>
+            </ul>
+        </nav>
+        <div class="hum-user">
+            
+        </div>
     </header>
 
     <!-- Modal -->
     <div id="myModal">
-        <div class="modal-content">
-            <a class="nav-item active" href="#">Timesheets</a>
-            <a class="nav-item" href="#">Team members</a>
-            <a class="nav-item" href="#">Projects</a>
-            <a class="nav-item" href="#">Clients</a>
-            <a class="nav-item" href="#">Documents</a>
-        </div>
+        <nav class="modal-content">
+            <li><a class="nav-item active" href="#">Timesheets</a></li>
+            <li><a class="nav-item" href="#">Team members</a></li>
+            <li><a class="nav-item" href="#">Projects</a></li>
+            <li><a class="nav-item" href="#">Clients</a></li>
+            <li><a class="nav-item" href="#">Documents</a></li>
+        </nav>
     </div>
-    
-
-
     <script src="main.js"></script>
 </body>
 </html>
