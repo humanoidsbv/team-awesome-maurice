@@ -1,18 +1,8 @@
 const modal = document.querySelector('.modal-content');
-
 const button = document.getElementById('btn');
+const buttonToggle = document.querySelector('.modal-btn');
 
-
-button.onclick = () => {
-    modal.style.display = "flex";
-};
-
-span.onclick = () => {
-    modal.style.display = "none";
-};
-
-window.onclick = event => {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-}
+button.addEventListener('click', () => {
+    modal.classList.toggle('modal-content-toggle');
+    buttonToggle.classList.toggle('modal-btn-cross');
+});
