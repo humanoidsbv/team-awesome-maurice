@@ -1,0 +1,37 @@
+/* 
+@media screen and (min-width: 1024px) {
+    .Rectangle-1 {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .team-awesome {
+        display: none;
+    }
+
+    .modal-btn {
+        display: none;
+    }
+
+    .modal-content {
+        position: absolute;
+        top: 2px;
+    }
+
+    .nav-item-mobile {
+        display: none;
+    }
+    
+    .nav-desktop {
+        display: inline-flex;
+        list-style-type: none;
+        padding-left: 10px;
+    }
+
+    .nav-item-desk {
+        font-size: 12px;
+
+    }
+
+} */
