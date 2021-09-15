@@ -1,9 +1,9 @@
-const modal = document.querySelector('.modal__content');
-const button = document.getElementById('button');
-const buttonToggle = document.querySelector('.modal-button');
+const drawer = document.querySelector('.navbar-mobile__menu');
+const button = document.getElementById('drawerOpener');
+const buttonToggle = document.querySelector('.header__button');
 
 button.addEventListener('click', () => {
-    modal.classList.toggle('modal__content-toggle');
-    buttonToggle.classList.toggle('modal-button-cross');
+    drawer.classList.toggle('navbar-mobile--toggle');
+    buttonToggle.classList.toggle('header__button-cross');
 });
 

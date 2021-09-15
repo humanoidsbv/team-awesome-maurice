@@ -5,41 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" type="text/css"/>
-    <link rel="stylesheet" href="mediaqueries.css" type="text/css"/>
     <title>Team Awesome</title>
 </head>
 <body>
     
+    <!-- Header -->
     <header class="header">
         <h1 class="header__logo">team awesome</h1>
-        <button id="button" class="modal-button"></button>
-        <nav>
-            <ul class="navbar-desktop">
-                <li><a class="navbar-desktop__item navbar-desktop--active" href="#">Timesheets</a></li>
-                <li><a class="navbar-desktop__item" href="#">Team members</a></li>
-                <li><a class="navbar-desktop__item" href="#">Projects</a></li>
-                <li><a class="navbar-desktop__item" href="#">Clients</a></li>
-                <li><a class="navbar-desktop__item" href="#">Documents</a></li>
+        <button id="drawerOpener" class="header__button"></button>
+        <nav class="navbar-desktop">
+            <ul class="navbar-desktop__menu">
+                <li><a class="navbar-desktop__menu__item navbar-desktop__menu__item--active" href="#">Timesheets</a></li>
+                <li><a class="navbar-desktop__menu__item" href="#">Team members</a></li>
+                <li><a class="navbar-desktop__menu__item" href="#">Projects</a></li>
+                <li><a class="navbar-desktop__menu__item" href="#">Clients</a></li>
+                <li><a class="navbar-desktop__menu__item" href="#">Documents</a></li>
             </ul>
         </nav>
-        <div class="user">
+        <div class="user-wrapper">
             <img src="utils/ruben.jpg" alt="user" class="user__img"/>
             <img src="utils/1_humanoids_logo.svg" alt="logo" class="logo"/>
         </div>
-        <div class="arrow">
-            <img src="utils/Arrow2-down.svg" alt="down arrow" class="arrow"/>
+        <div class="arrow-wrapper">
+            <img src="utils/Arrow-down.svg" alt="down arrow" class="arrow"/>
         </div>
     </header>
 
-    <!-- Modal -->
-    <div id="myModal">
-        <nav class="modal__content">
-            <ul class="navbar-mobile">
-                <li><a class="navbar-mobile__item navbar-mobile--active" href="#">Timesheets</a></li>
-                <li><a class="navbar-mobile__item" href="#">Team members</a></li>
-                <li><a class="navbar-mobile__item" href="#">Projects</a></li>
-                <li><a class="navbar-mobile__item" href="#">Clients</a></li>
-                <li><a class="navbar-mobile__item" href="#">Documents</a></li>
+    <!-- Drawer -->
+    <div id="myDrawer">
+        <nav class="navbar-mobile">
+            <ul class="navbar-mobile__menu">
+                <li><a class="navbar-mobile__menu__item navbar-mobile__menu__item--active" href="#">Timesheets</a></li>
+                <li><a class="navbar-mobile__menu__item" href="#">Team members</a></li>
+                <li><a class="navbar-mobile__menu__item" href="#">Projects</a></li>
+                <li><a class="navbar-mobile__menu__item" href="#">Clients</a></li>
+                <li><a class="navbar-mobile__menu__item" href="#">Documents</a></li>
             </ul>
         </nav>
     </div>
