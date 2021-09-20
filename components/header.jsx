@@ -1,20 +1,25 @@
-import NavigationButton from "./NavigationButton";
+import NavigationToggle from "./NavigationToggle";
 import Navigation from "./Navigation";
-import { useState } from 'react';
+import User from "./User";
+
+import { useState } from "react";
 import * as Styled from "../styles/StyledHeader.styled";
 
+
 function Header() {
-    const [isActive, setIsActive] = useState(false); // state for the opening/closing of the mobile navigation
+    const [isActive, setIsActive] = useState(false); // state for opening/closing mobile navigation
+    
 
     return (
-        <>
-            <Styled.Header isActive={isActive}>
-                <NavigationButton isClosed={!isActive} 
-                                    onClick={() => setIsActive(!isActive)}/>
-                <h1 className="logo">team awesome</h1>
-                <Navigation isActive={isActive}/>
-            </Styled.Header>
-        </>
+        <Styled.Header isActive={isActive}>
+            <NavigationToggle 
+                onClick={() => setIsActive(!isActive)}
+                isActive={!isActive} 
+            />
+            <h1 className="logo">team awesome</h1>
+            <Navigation isActive={isActive} />
+            <User />
+        </Styled.Header>
     )
 }
 

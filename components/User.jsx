@@ -1,6 +1,11 @@
+import * as Styled from "../styles/User.styled";
+
 function User() {
     return (
-        <span></span>
+        <Styled.UserWrapper>
+            <Styled.CompanyLogo src="humanoids_logo.svg" alt="company logo"/>
+            <Styled.UserImage src="ruben.jpg" alt="user img"/>
+        </Styled.UserWrapper>
     )
 };
 

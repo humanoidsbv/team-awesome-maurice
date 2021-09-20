@@ -1,16 +1,26 @@
-import * as Styled from "../styles/Navigation.styles";
+import * as Styled from "../styles/Navigation.styled";
 
-function Navigation({isActive}) {
+function Navigation( { isActive } ) {
     return (
-        <Styled.Navbar isActive={isActive}>
-            <Styled.NavbarMenu>
-            <Styled.NavbarMenuList><Styled.NavbarMenuItem href="#">Timesheets</Styled.NavbarMenuItem></Styled.NavbarMenuList>
-            <Styled.NavbarMenuList><Styled.NavbarMenuItem href="#">Team members</Styled.NavbarMenuItem></Styled.NavbarMenuList>
-            <Styled.NavbarMenuList><Styled.NavbarMenuItem href="#">Projects</Styled.NavbarMenuItem></Styled.NavbarMenuList>
-            <Styled.NavbarMenuList><Styled.NavbarMenuItem href="#">Clients</Styled.NavbarMenuItem></Styled.NavbarMenuList>
-            <Styled.NavbarMenuList><Styled.NavbarMenuItem href="#">Documents</Styled.NavbarMenuItem></Styled.NavbarMenuList>
-            </Styled.NavbarMenu>
-        </Styled.Navbar>
+        <Styled.Navigation isActive={isActive}>
+            <Styled.NavigationMenu>
+                <Styled.NavigationMenuList>
+                    <Styled.NavigationMenuItem navItemSelected href="#">Timesheets</Styled.NavigationMenuItem>
+                </Styled.NavigationMenuList>
+                <Styled.NavigationMenuList>
+                    <Styled.NavigationMenuItem href="#">Team members</Styled.NavigationMenuItem>
+                </Styled.NavigationMenuList>
+                <Styled.NavigationMenuList>
+                    <Styled.NavigationMenuItem href="#">Projects</Styled.NavigationMenuItem>
+                </Styled.NavigationMenuList>
+                <Styled.NavigationMenuList>
+                    <Styled.NavigationMenuItem href="#">Clients</Styled.NavigationMenuItem>
+                </Styled.NavigationMenuList>
+                <Styled.NavigationMenuList>
+                    <Styled.NavigationMenuItem href="#">Documents</Styled.NavigationMenuItem>
+                </Styled.NavigationMenuList>
+            </Styled.NavigationMenu>
+        </Styled.Navigation>
     )
 };
 

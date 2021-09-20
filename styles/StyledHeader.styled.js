@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Header = styled.header`
     align-items: center;
@@ -7,10 +7,16 @@ export const Header = styled.header`
     flex-direction: column;
     height: ${(props) => props.isActive ? "100vh" : "50px"};
 
-    > .logo {
+    .logo {
         color: #fff;
-        font-family: Bello, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: Bello, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 26px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .logo {
+            display: none;
+        }
     }
 
     > h1 {
