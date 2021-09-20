@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
+export const Header = styled.header<{ isActive: boolean }>`
     align-items: center;
     background-color: #4f88ef;
     display: flex;

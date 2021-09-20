@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Navigation = styled.nav`
+export const Navigation = styled.nav<{ isActive: boolean }>`
     align-items: center;
     background-color: #4f88ef;
     display: ${(props) => props.isActive ? "flex" : "none"};
@@ -37,7 +37,7 @@ export const NavigationMenuList = styled.li`
     }
 `
 
-export const NavigationMenuItem = styled.a`
+export const NavigationMenuItem = styled.a<{ navItemSelected?: boolean }>`
     background-color: ${(props) => props.navItemSelected ? "#1166a5" : "none" };
     border-radius: ${(props) => props.navItemSelected ? "4px" : "0" };
     color: #fff;

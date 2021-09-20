@@ -33,3 +33,9 @@ export const UserImage = styled.img`
     margin: 1px; 
     width: 20%;
 `
+
+export const ArrowDown = styled.img`
+    position: absolute;
+    right: 15px;
+    top: 25px;
+`;

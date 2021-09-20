@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavigationToggle = styled.button`
+export const NavigationToggle = styled.button<{ isActive: boolean }>`
     background: ${(props) => props.isActive ? "url('/group.svg') no-repeat center" : "url('/shape.svg') no-repeat center"};
     border: none;
     cursor: pointer;
@@ -11,6 +11,6 @@ export const NavigationToggle = styled.button`
     top: 5px;
 
     @media screen and (min-width: 1024px) {
-        background: none;
+        display: none;
     }
 `;
