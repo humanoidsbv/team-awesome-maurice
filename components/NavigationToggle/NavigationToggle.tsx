@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as Styled from "../styles/NavigationToggle.styled";
+import * as Styled from "./NavigationToggle.styled";
 
 function NavigationToggle({ isActive, onClick }) {
   return <Styled.NavigationToggle isActive={isActive} onClick={onClick} />;
