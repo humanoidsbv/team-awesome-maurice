@@ -3,24 +3,12 @@ import React from "react";
 import * as Styled from "../styles/Button.styled";
 
 interface ButtonProps {
+  children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   type: "Primary" | "Secondary";
-  children: React.ReactNode;
 }
 
-// const Button: React.FunctionComponent<ButtonProps> = ({ type, children }) => {
-//   return (
-//     <>
-//       {type === "Primary" ? (
-//         <Styled.Primary>{children}</Styled.Primary>
-//       ) : (
-//         <Styled.Secondary>{children}</Styled.Secondary>
-//       )}
-//     </>
-//   );
-// };
-
-function Button({ onClick, type = "Primary", children }: ButtonProps) {
+function Button({ onClick, type, children}: ButtonProps) {
   return (
     <>
       {type === "Primary" ? (
