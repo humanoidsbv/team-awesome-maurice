@@ -21,6 +21,6 @@ export const Primary = styled.button`
 
 export const Secondary = styled(Primary)`
   background-image: linear-gradient(to top, #f2f4f7, #fff);
-  color: #354052;
   border: solid 1px #ced0da;
+  color: #354052;
 `;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import * as Styled from "./StyledHeader.styled";
 
-import NavigationToggle from "../NavigationToggle/NavigationToggle";
+import * as Styled from "./StyledHeader.styled";
 import Navigation from "../Navigation/Navigation";
+import NavigationToggle from "../NavigationToggle/NavigationToggle";
 import User from "../User/User";
 
 function Header() {
