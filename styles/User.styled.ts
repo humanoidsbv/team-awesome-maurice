@@ -6,15 +6,15 @@ export const UserWrapper = styled.div`
 `;
 
 export const UserButton = styled.div`
+  align-items: center;
   background-color: #fff;
   border-radius: 18px;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
   height: 36px;
-  width: 135px;
+  justify-content: space-between;
   margin-right: 10px;
+  width: 135px;
 
   @media screen and (min-width: 0px) and (max-width: 1023px) {
     display: none;

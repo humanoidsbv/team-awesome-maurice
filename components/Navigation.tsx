@@ -1,4 +1,5 @@
 import React from "react";
+
 import * as Styled from "../styles/Navigation.styled";
 
 function Navigation({ isActive }) {
@@ -6,7 +7,7 @@ function Navigation({ isActive }) {
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem navItemSelected href="#">
+          <Styled.NavigationMenuItem selected href="#">
             Timesheets
           </Styled.NavigationMenuItem>
         </Styled.NavigationMenuList>

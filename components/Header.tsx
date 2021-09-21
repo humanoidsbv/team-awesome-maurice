@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import * as Styled from "../styles/StyledHeader.styled";
+
 import NavigationToggle from "./NavigationToggle";
 import Navigation from "./Navigation";
 import User from "./User";
-
-import * as Styled from "../styles/StyledHeader.styled";
 
 function Header() {
   const [isActive, setIsActive] = useState<boolean>(false); // state for opening/closing mobile navigation

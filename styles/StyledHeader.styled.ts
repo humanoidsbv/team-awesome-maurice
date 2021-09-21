@@ -14,8 +14,8 @@ export const Header = styled.header<{ isActive: boolean }>`
   }
 
   @media screen and (min-width: 1024px) {
-    height: 70px;
     flex-direction: row;
+    height: 70px;
     justify-content: space-between;
 
     .logo {
