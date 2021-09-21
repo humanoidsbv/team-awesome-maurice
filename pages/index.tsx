@@ -1,10 +1,10 @@
 import React from "react";
 
-import Header from "../components/Header";
-import Button from "../components/Button";
+import Header from "../components/Header/Header";
+import Button from "../components/Button/Button";
 import * as Styled from "../styles/FirstPageWrapper.styled";
 import GlobalStyle from "../styles/Global";
-import { Icon } from "../components/Icon";
+import { Icon } from "../components/Icon/Icon";
 
 function App() {
   const handleClick = () => {

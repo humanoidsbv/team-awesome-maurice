@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as Styled from "../styles/Button.styled";
+import * as Styled from "./Button.styled";
 
 interface ButtonProps {
   children: React.ReactNode;
