@@ -8,7 +8,7 @@ interface ButtonProps {
   type: "Primary" | "Secondary";
 }
 
-function Button({children, onClick, type}: ButtonProps) {
+function Button({ children, onClick, type }: ButtonProps) {
   return (
     <>
       {type === "Primary" ? (
