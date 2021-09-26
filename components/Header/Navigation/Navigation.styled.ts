@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Navigation = styled.nav<{ isActive: boolean }>`
   background-color: #4f88ef;
-  display: ${(props) => (props.isActive ? "flex" : "none")};
+  display: ${(props) => (props.isActive ? 'flex' : 'none')};
   flex-direction: column;
   padding-top: 40px;
   width: 100%;
@@ -38,11 +38,11 @@ export const NavigationMenuList = styled.li`
 `;
 
 export const NavigationMenuItem = styled.a<{ selected?: boolean }>`
-  background-color: ${(props) => (props.selected ? "#1166a5" : "none")};
-  border-radius: ${(props) => (props.selected ? "4px" : "0")};
+  background-color: ${(props) => (props.selected ? '#1166a5' : 'none')};
+  border-radius: ${(props) => (props.selected ? '4px' : '0')};
   color: #fff;
-  font-family: proximanova, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: proximanova, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 10px;
-  padding: ${(props) => (props.selected ? "10px 15px" : 0)};
+  padding: ${(props) => (props.selected ? '10px 15px' : 0)};
   text-decoration: none;
 `;

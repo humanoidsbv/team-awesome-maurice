@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Primary = styled.button`
   align-items: center;
@@ -7,7 +7,7 @@ export const Primary = styled.button`
   border: solid 1px #249533;
   color: #fff;
   display: flex;
-  font-family: Proximanova, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Proximanova, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 36px;

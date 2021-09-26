@@ -1,27 +1,27 @@
-import React from "react";
+import React from 'react';
 
-import * as Styled from "./Navigation.styled";
+import * as Styled from './Navigation.styled';
 
 function Navigation({ isActive }) {
   return (
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem selected href="#">
+          <Styled.NavigationMenuItem selected href='#'>
             Timesheets
           </Styled.NavigationMenuItem>
         </Styled.NavigationMenuList>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem href="#">Team members</Styled.NavigationMenuItem>
+          <Styled.NavigationMenuItem href='#'>Team members</Styled.NavigationMenuItem>
         </Styled.NavigationMenuList>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem href="#">Projects</Styled.NavigationMenuItem>
+          <Styled.NavigationMenuItem href='#'>Projects</Styled.NavigationMenuItem>
         </Styled.NavigationMenuList>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem href="#">Clients</Styled.NavigationMenuItem>
+          <Styled.NavigationMenuItem href='#'>Clients</Styled.NavigationMenuItem>
         </Styled.NavigationMenuList>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem href="#">Documents</Styled.NavigationMenuItem>
+          <Styled.NavigationMenuItem href='#'>Documents</Styled.NavigationMenuItem>
         </Styled.NavigationMenuList>
       </Styled.NavigationMenu>
     </Styled.Navigation>

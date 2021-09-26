@@ -1,42 +1,35 @@
-import React from "react";
+import React from 'react';
 
-import * as Styled from "./TimeEntry.styled";
-import TimeEntryDate from "./TimeEntry/TimeEntryDate";
+import * as Styled from './TimeEntry.styled';
+import { TimeEntryInterface } from './Interface';
 
-interface TimeEntryProps {
-  timeEntry: {
-    id: number;
-    client: string;
-    startTimestamp: string;
-    stopTimestamp: string;
-  };
+export interface TimeEntryProps {
+    timeEntry: TimeEntryInterface;
+    renderState: string;
 }
 
-function TimeEntry({ timeEntry }: TimeEntryProps) {
+function TimeEntry({ timeEntry, renderState }: TimeEntryProps) {
   const startTime = new Date(timeEntry.startTimestamp);
-  const formattedStartTime = startTime.toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
+  const formattedStartTime = startTime.toLocaleTimeString('nl-NL', {
+    hour: '2-digit',
+    minute: '2-digit',
   });
 
   const stopTime = new Date(timeEntry.stopTimestamp);
-  const formattedStopTime = stopTime.toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
+  const formattedStopTime = stopTime.toLocaleTimeString('nl-NL', {
+    hour: '2-digit',
+    minute: '2-digit',
   });
 
   return (
-    <>
-      <TimeEntryDate />
-      <Styled.TimeEntry>
-        <Styled.TimeEntryClient>{timeEntry.client}</Styled.TimeEntryClient>
-        <Styled.TimeEntryTime>
-          {formattedStartTime}
-          <span> - </span>
-          {formattedStopTime}
-        </Styled.TimeEntryTime>
-      </Styled.TimeEntry>
-    </>
+    <Styled.TimeEntry renderState={renderState}>
+      <Styled.TimeEntryClient>{timeEntry.client}</Styled.TimeEntryClient>
+      <Styled.TimeEntryTime>
+        {formattedStartTime}
+        <span> - </span>
+        {formattedStopTime}
+      </Styled.TimeEntryTime>
+    </Styled.TimeEntry>
   );
 }
 
