@@ -8,14 +8,11 @@ interface ButtonProps {
   type: "Primary" | "Secondary";
 }
 
-function Button({children, onClick, type}: ButtonProps) {
+function Button({ children, onClick, type }: ButtonProps) {
   return (
     <>
-      {type === "Primary" ? (
-        <Styled.Primary onClick={onClick}>{children}</Styled.Primary>
-      ) : (
-        <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>
-      )}
+      {type === "Primary" && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
+      {type === "Secondary" && <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>}
     </>
   );
 }

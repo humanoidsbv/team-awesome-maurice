@@ -9,7 +9,7 @@ export const Header = styled.header<{ isActive: boolean }>`
 
   .logo {
     color: #fff;
-    font-family: Bello, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: bello-script, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 26px;
   }
 

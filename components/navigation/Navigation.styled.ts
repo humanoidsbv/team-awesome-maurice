@@ -41,7 +41,7 @@ export const NavigationMenuItem = styled.a<{ selected?: boolean }>`
   background-color: ${(props) => (props.selected ? "#1166a5" : "none")};
   border-radius: ${(props) => (props.selected ? "4px" : "0")};
   color: #fff;
-  font-family: proximanova, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 10px;
   padding: ${(props) => (props.selected ? "10px 15px" : 0)};
   text-decoration: none;
