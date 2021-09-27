@@ -6,10 +6,10 @@ function User() {
   return (
     <Styled.UserWrapper>
       <Styled.UserButton>
-        <Styled.UserImage src="icons/ruben.jpg" alt="user image" />
-        <Styled.CompanyLogo src="icons/humanoids-logo.svg" alt="company logo" />
+        <Styled.UserImage src="/icons/ruben.jpg" alt="user image" />
+        <Styled.CompanyLogo src="/icons/humanoids-logo.svg" alt="company logo" />
       </Styled.UserButton>
-      <Styled.ArrowDown src="icons/arrow-down.svg" alt="collapsable menu" />
+      <Styled.ArrowDown src="/icons/arrow-down.svg" alt="collapsable menu" />
     </Styled.UserWrapper>
   );
 }
