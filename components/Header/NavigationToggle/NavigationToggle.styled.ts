@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const NavigationToggle = styled.button<{ isActive: boolean }>`
   background: ${(props) =>

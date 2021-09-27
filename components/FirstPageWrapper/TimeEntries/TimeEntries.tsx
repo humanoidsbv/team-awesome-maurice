@@ -1,51 +1,62 @@
-import React from 'react';
+import React from "react";
 
-import TimeEntry from './TimeEntry';
-import TimeEntryDate from './TimeEntryDate';
-import { TimeEntryInterface } from './Interface';
+import TimeEntry from "./TimeEntry";
+import TimeEntryDate from "./TimeEntryDate";
+import { TimeEntryInterface } from "./Interface";
 
 interface TimeEntriesProps {
-  timeEntries: TimeEntryInterface[]
+  timeEntries: TimeEntryInterface[];
 }
 
 function TimeEntries({ timeEntries }: TimeEntriesProps) {
-  const timeZone = 'nl-NL'
+  const timeZone = "nl-NL";
   const dateFormat = {
-    day: 'numeric',
-    month: '2-digit',
-    year: 'numeric',
+    day: "numeric",
+    month: "2-digit",
+    year: "numeric",
   } as const;
 
   return (
     <>
       {timeEntries.map((timeEntry, i, array) => {
-        const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString(timeZone, dateFormat);
+        const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString(
+          timeZone,
+          dateFormat,
+        );
+        const previousDate = new Date(array[i - 1]?.startTimestamp).toLocaleDateString(
+          timeZone,
+          dateFormat,
+        );
+        const nextDate = new Date(array[i + 1]?.startTimestamp).toLocaleDateString(
+          timeZone,
+          dateFormat,
+        );
 
-        const isTop = currentDate === new Date(array[i + 1]?.startTimestamp).toLocaleDateString(timeZone, dateFormat) &&
-                      currentDate !== new Date(array[i - 1]?.startTimestamp).toLocaleDateString(timeZone, dateFormat);
-
-        const isCenter = currentDate === new Date(array[i + 1]?.startTimestamp).toLocaleDateString(timeZone, dateFormat) &&
-                         currentDate === new Date(array[i - 1]?.startTimestamp).toLocaleDateString(timeZone, dateFormat);
-
-        const isBottom = currentDate !== new Date(array[i + 1]?.startTimestamp).toLocaleDateString(timeZone, dateFormat) &&
-                         currentDate === new Date(array[i - 1]?.startTimestamp).toLocaleDateString(timeZone, dateFormat);
+        const isTop = currentDate === nextDate && currentDate !== previousDate;
+        const isCenter = currentDate === nextDate && currentDate === previousDate;
+        const isBottom = currentDate !== nextDate && currentDate === previousDate;
 
         let renderState: string;
-        
+
         if (isTop) {
-          renderState = 'isTop';
+          renderState = "isTop";
         } else if (isCenter) {
-          renderState = 'isCenter';
+          renderState = "isCenter";
         } else if (isBottom) {
-          renderState = 'isBottom';
+          renderState = "isBottom";
         } else {
-          renderState = 'standAlone';
-        };
-        
+          renderState = "standAlone";
+        }
+
         return (
           <>
-            {(i === 0 || currentDate !== new Date(timeEntries[i - 1].startTimestamp).toLocaleDateString(timeZone, dateFormat)) && (
-              <TimeEntryDate startTimestamp={timeEntry.startTimestamp} key={timeEntry[i]} />
+            {(i === 0 ||
+              currentDate !==
+                new Date(timeEntries[i - 1].startTimestamp).toLocaleDateString(
+                  timeZone,
+                  dateFormat,
+                )) && (
+                <TimeEntryDate startTimestamp={timeEntry.startTimestamp} key={timeEntry[i]} />
             )}
             <TimeEntry timeEntry={timeEntry} key={timeEntry.id} renderState={renderState} />
           </>
@@ -56,4 +67,3 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
 }
 
 export default TimeEntries;
-

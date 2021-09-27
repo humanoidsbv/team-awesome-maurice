@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { Icon } from '../components/FirstPageWrapper/Button/Icon/Icon';
-import * as Styled from '../styles/FirstPageWrapper.styled';
-import Button from '../components/FirstPageWrapper/Button/Button';
-import GlobalStyle from '../styles/Global';
-import Header from '../components/Header/Header';
-import mockTimeEntries from '../fixtures/time-entries';
-import TimeEntries from '../components/FirstPageWrapper/TimeEntries/TimeEntries';
+import { Icon } from "../components/FirstPageWrapper/Button/Icon/Icon";
+import * as Styled from "../styles/FirstPageWrapper.styled";
+import Button from "../components/FirstPageWrapper/Button/Button";
+import GlobalStyle from "../styles/Global";
+import Header from "../components/Header/Header";
+import mockTimeEntries from "../fixtures/time-entries";
+import TimeEntries from "../components/FirstPageWrapper/TimeEntries/TimeEntries";
 
 function App() {
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
@@ -16,9 +16,9 @@ function App() {
       ...timeEntries,
       {
         id: 0.8524250995148188,
-        client: 'Port of Rotterdam',
-        startTimestamp: '2021-09-25T16:00:00.000Z',
-        stopTimestamp: '2021-09-25T18:00:00.000Z',
+        client: "Port of Rotterdam",
+        startTimestamp: "2021-09-25T16:00:00.000Z",
+        stopTimestamp: "2021-09-25T18:00:00.000Z",
       },
     ]);
   };
@@ -28,7 +28,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Styled.FirstPageWrapper>
-        <Button type='Primary' onClick={handleClick}>
+        <Button type="Primary" onClick={handleClick}>
           <Icon />
           New Time Entry
         </Button>
