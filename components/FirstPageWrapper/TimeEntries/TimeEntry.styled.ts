@@ -12,7 +12,7 @@ export const TimeEntry = styled.div<{ renderState: string }>`
   border-left: solid 4px #4f88ef !important;
   border: solid 1px #e6eaee;
   display: flex;
-  font-family: ProximaNova, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Proxima Nova, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   height: 82px;
   justify-content: space-between;
 `;
