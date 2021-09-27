@@ -7,7 +7,7 @@ export const Primary = styled.button`
   border: solid 1px #249533;
   color: #fff;
   display: flex;
-  font-family: Proxima Nova "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 36px;

@@ -3,4 +3,4 @@ export interface TimeEntryInterface {
   client: string;
   startTimestamp: string;
   stopTimestamp: string;
-};
+}

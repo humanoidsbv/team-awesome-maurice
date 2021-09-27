@@ -1,7 +1,7 @@
 import React from "react";
 
-import TimeEntry from "./TimeEntry";
-import TimeEntryDate from "./TimeEntryDate";
+import TimeEntry from "../time-entry/TimeEntry";
+import TimeEntryDate from "../time-entry-date/TimeEntryDate";
 import { TimeEntryInterface } from "./Interface";
 
 interface TimeEntriesProps {
@@ -35,31 +35,21 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
         const isTop = currentDate === nextDate && currentDate !== previousDate;
         const isCenter = currentDate === nextDate && currentDate === previousDate;
         const isBottom = currentDate !== nextDate && currentDate === previousDate;
-
-        let renderState: string;
-
-        if (isTop) {
-          renderState = "isTop";
-        } else if (isCenter) {
-          renderState = "isCenter";
-        } else if (isBottom) {
-          renderState = "isBottom";
-        } else {
-          renderState = "standAlone";
-        }
+        const standAlone = currentDate !== nextDate && currentDate !== previousDate;
 
         return (
-          <>
-            {(i === 0 ||
-              currentDate !==
-                new Date(timeEntries[i - 1].startTimestamp).toLocaleDateString(
-                  timeZone,
-                  dateFormat,
-                )) && (
-                <TimeEntryDate startTimestamp={timeEntry.startTimestamp} key={timeEntry[i]} />
+          <React.Fragment key={timeEntry.id}>
+            {(i === 0 || currentDate !== previousDate) && (
+              <TimeEntryDate startTimestamp={timeEntry.startTimestamp} />
             )}
-            <TimeEntry timeEntry={timeEntry} key={timeEntry.id} renderState={renderState} />
-          </>
+            <TimeEntry
+              isBottom={isBottom}
+              isCenter={isCenter}
+              isTop={isTop}
+              timeEntry={timeEntry}
+              standAlone={standAlone}
+            />
+          </React.Fragment>
         );
       })}
     </>
