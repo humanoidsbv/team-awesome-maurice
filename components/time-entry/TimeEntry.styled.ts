@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-export const TimeEntry = styled.div<{
+export interface StyledTimeEntryProps {
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
   standAlone: boolean;
-}>`
+}
+
+export const TimeEntry = styled.div<StyledTimeEntryProps>`
   align-items: center;
   border-radius: 4px;
   border: solid 1px #e6eaee;
@@ -18,10 +20,10 @@ export const TimeEntry = styled.div<{
   ${(props) =>
     props.isBottom &&
     `border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px`};
-  ${(props) => props.isCenter && `border-radius: 0px; border-top: 0px; border-bottom: 0px`};
+  ${(props) => props.isCenter && `border-radius: 0px; border-bottom: 0px`};
   ${(props) =>
     props.isTop &&
-    `border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 0px;`};
+    `border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom: 0px;`};
   ${(props) => props.standAlone && `border-bottom-left-radius: 0px; border-top-left-radius: 0px`};
 `;
 
@@ -34,12 +36,7 @@ export const TimeEntryTime = styled.span`
   padding-right: 16px;
 `;
 
-export const TimeEntryWrapper = styled.div<{
-  isBottom: boolean;
-  isCenter: boolean;
-  isTop: boolean;
-  standAlone: boolean;
-}>`
+export const TimeEntryWrapper = styled.div<StyledTimeEntryProps>`
   border-left: solid 4px #4f88ef;
   border-radius: 4px;
 
