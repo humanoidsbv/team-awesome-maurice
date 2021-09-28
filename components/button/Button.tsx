@@ -5,7 +5,7 @@ import * as Styled from "./Button.styled";
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  type: "Primary" | "Secondary";
+  type: "Primary" | "Secondary" | "Tertiary";
 }
 
 function Button({ children, onClick, type }: ButtonProps) {
@@ -13,6 +13,7 @@ function Button({ children, onClick, type }: ButtonProps) {
     <>
       {type === "Primary" && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
       {type === "Secondary" && <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>}
+      {type === "Tertiary" && <Styled.Tertiary onClick={onClick} type="submit">{children}</Styled.Tertiary>}
     </>
   );
 }

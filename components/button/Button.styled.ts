@@ -24,3 +24,7 @@ export const Secondary = styled(Primary)`
   border: solid 1px #ced0da;
   color: #354052;
 `;
+
+export const Tertiary = styled(Primary)`
+  margin-top: 10px;
+`

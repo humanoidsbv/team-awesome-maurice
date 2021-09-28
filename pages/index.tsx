@@ -7,31 +7,29 @@ import GlobalStyle from "../styles/Global";
 import Header from "../components/header/Header";
 import mockTimeEntries from "../fixtures/time-entries";
 import TimeEntries from "../components/time-entries/TimeEntries";
+import EntryForm from "../components/form/EntryForm";
 
 function App() {
-  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+  const [timeEntries] = useState(mockTimeEntries);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: 0.8524250995148191,
-        client: "Port of Rotterdam",
-        startTimestamp: "2021-09-25T16:00:00.000Z",
-        stopTimestamp: "2021-09-25T18:00:00.000Z",
-      },
-    ]);
+    setIsOpen(!isOpen);
   };
+
 
   return (
     <>
       <GlobalStyle />
       <Header />
       <Styled.FirstPageWrapper>
-        <Button type="Primary" onClick={handleClick}>
-          <Icon />
-          New Time Entry
-        </Button>
+        {!isOpen && (
+          <Button type="Primary" onClick={handleClick}>
+            <Icon />
+            New Time Entry
+          </Button>
+        )}
+        {isOpen && <EntryForm onClose={handleClick} />}
         <TimeEntries timeEntries={timeEntries} />
       </Styled.FirstPageWrapper>
     </>
