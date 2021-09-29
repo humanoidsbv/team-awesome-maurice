@@ -10,13 +10,26 @@ import TimeEntries from "../components/time-entries/TimeEntries";
 import EntryForm from "../components/form/EntryForm";
 
 function App() {
-  const [timeEntries] = useState(mockTimeEntries);
+  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
+  const addNewTimeEntry = (newTimeEntry) => {
+    // change the mock data to the data filled in, in the form component
+
+    setTimeEntries([
+      ...timeEntries,
+      {
+        id: Math.random(),
+        client: newTimeEntry.employer,
+        startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timefrom}`).toISOString(),
+        stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timeto}`).toISOString(),
+      },
+    ]);
+  };
 
   return (
     <>
@@ -24,12 +37,12 @@ function App() {
       <Header />
       <Styled.FirstPageWrapper>
         {!isOpen && (
-          <Button type="Primary" onClick={handleClick}>
+          <Button primary onClick={handleClick}>
             <Icon />
             New Time Entry
           </Button>
         )}
-        {isOpen && <EntryForm onClose={handleClick} />}
+        {isOpen && <EntryForm onClose={handleClick} onSubmit={addNewTimeEntry} />}
         <TimeEntries timeEntries={timeEntries} />
       </Styled.FirstPageWrapper>
     </>

@@ -6,9 +6,10 @@ import { TimeEntryInterface } from "../time-entries/Interface";
 
 export interface EntryFormProps {
   onClose?: () => void;
+  onSubmit?: (newTimeEntry) => void;
 }
 
-function EntryForm({ onClose }: EntryFormProps) {
+function EntryForm({ onClose, onSubmit }: EntryFormProps) {
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntryInterface>({});
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,21 +17,23 @@ function EntryForm({ onClose }: EntryFormProps) {
     event.preventDefault();
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(newTimeEntry);
     setNewTimeEntry({});
   };
 
   return (
     <Styled.EntryFormWrapper onSubmit={handleSubmit}>
-      <Styled.FormClose src="/icons/close.svg" alt="close button" onClick={onClose} />
+      <Styled.CloseButton src="/icons/close.svg" alt="close button" onClick={onClose} />
       <Styled.InputElementWrapper>
         <Styled.EntryFormInputTitle htmlFor="employer">EMPLOYER</Styled.EntryFormInputTitle>
         <Styled.EntryFormInput
           id="employer"
           name="employer"
+          onChange={handleChange}
           type="text"
           value={newTimeEntry.employer ?? ""}
-          onChange={handleChange}
         />
       </Styled.InputElementWrapper>
       <Styled.InputElementWrapper>
@@ -38,9 +41,9 @@ function EntryForm({ onClose }: EntryFormProps) {
         <Styled.EntryFormInput
           id="activity"
           name="activity"
+          onChange={handleChange}
           type="text"
           value={newTimeEntry.activity ?? ""}
-          onChange={handleChange}
         />
       </Styled.InputElementWrapper>
       <Styled.InputElementWrapper>
@@ -48,9 +51,9 @@ function EntryForm({ onClose }: EntryFormProps) {
         <Styled.EntryFormInput
           id="date"
           name="date"
+          onChange={handleChange}
           type="date"
           value={newTimeEntry.date ?? ""}
-          onChange={handleChange}
         />
       </Styled.InputElementWrapper>
       <Styled.InputElementWrapper smallWidth>
@@ -58,9 +61,9 @@ function EntryForm({ onClose }: EntryFormProps) {
         <Styled.EntryFormInput
           id="timefrom"
           name="timefrom"
+          onChange={handleChange}
           type="time"
           value={newTimeEntry.timefrom ?? ""}
-          onChange={handleChange}
         />
       </Styled.InputElementWrapper>
       <Styled.InputElementWrapper smallWidth>
@@ -68,12 +71,12 @@ function EntryForm({ onClose }: EntryFormProps) {
         <Styled.EntryFormInput
           id="timeto"
           name="timeto"
+          onChange={handleChange}
           type="time"
           value={newTimeEntry.timeto ?? ""}
-          onChange={handleChange}
         />
       </Styled.InputElementWrapper>
-      <Button type="Tertiary">Add</Button>
+      <Button tertiary>Add</Button>
     </Styled.EntryFormWrapper>
   );
 }

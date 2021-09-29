@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const EntryFormWrapper = styled.form`
   background-color: #f5f8fa;
-  border-radius: 4px;
   border: solid 1px #e6eaee;
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 422px; 
+  height: 422px;
   margin-top: 5px;
   padding: 16px 16px;
   position: relative;
@@ -18,8 +18,7 @@ export const InputElementWrapper = styled.div<{ smallWidth?: boolean }>`
   height: 62px;
   margin: 5px;
   width: 100%;
-
-  width: ${(props) => (props.smallWidth ? "47%" : "100%")};
+  width: ${(props) => (props.smallWidth ? "45%" : "100%")};
 `;
 
 export const EntryFormInputTitle = styled.label`
@@ -41,7 +40,7 @@ export const EntryFormInput = styled.input`
   width: 100%;
 `;
 
-export const FormClose = styled.img`
+export const CloseButton = styled.img`
   height: auto;
   position: absolute;
   right: 20px;

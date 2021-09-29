@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Primary = styled.button`
+export const ButtonPrimary = styled.button`
   align-items: center;
   background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
   border-radius: 4px;
@@ -19,12 +19,12 @@ export const Primary = styled.button`
   }
 `;
 
-export const Secondary = styled(Primary)`
+export const ButtonSecondary = styled(ButtonPrimary)`
   background-image: linear-gradient(to top, #f2f4f7, #fff);
   border: solid 1px #ced0da;
   color: #354052;
 `;
 
-export const Tertiary = styled(Primary)`
-  margin-top: 10px;
+export const ButtonTertiary = styled(ButtonPrimary)`
+  margin-top: 42px;
 `
