@@ -27,4 +27,12 @@ export const ButtonSecondary = styled(ButtonPrimary)`
 
 export const ButtonTertiary = styled(ButtonPrimary)`
   margin-top: 42px;
-`
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    height: 36px;
+    margin-left: auto;
+    margin-top: 0px;
+    width: 90px;
+  }
+`;

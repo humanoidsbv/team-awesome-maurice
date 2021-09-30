@@ -10,7 +10,7 @@ interface ButtonProps {
   tertiary?: boolean;
 }
 
-function Button({ children, onClick, primary, secondary, tertiary }: ButtonProps) {
+function Button({ children, onClick, primary, secondary, tertiary}: ButtonProps) {
   return (
     <>
       {primary && <Styled.ButtonPrimary onClick={onClick}>{children}</Styled.ButtonPrimary>}

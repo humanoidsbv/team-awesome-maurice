@@ -4,11 +4,11 @@ import * as Styled from "./TimeEntry.styled";
 import { TimeEntryInterface } from "../time-entries/Interface";
 
 export interface TimeEntryProps {
-  timeEntry: TimeEntryInterface;
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
   standAlone: boolean;
+  timeEntry: TimeEntryInterface;
 }
 
 function TimeEntry({ timeEntry, isBottom, isCenter, isTop, standAlone }: TimeEntryProps) {

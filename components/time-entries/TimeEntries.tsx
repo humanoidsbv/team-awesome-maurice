@@ -18,40 +18,50 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
 
   return (
     <>
-      {timeEntries.map((timeEntry, i, array) => {
-        const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString(
-          timeZone,
-          dateFormat,
-        );
-        const previousDate = new Date(array[i - 1]?.startTimestamp).toLocaleDateString(
-          timeZone,
-          dateFormat,
-        );
-        const nextDate = new Date(array[i + 1]?.startTimestamp).toLocaleDateString(
-          timeZone,
-          dateFormat,
-        );
+      {[...timeEntries]
+        .sort((a, b) => {
+          if (a.startTimestamp < b.startTimestamp) {
+            return 1;
+          }
+          if (a.startTimestamp > b.startTimestamp) {
+            return -1;
+          }
+          return 0;
+        })
+        .map((timeEntry, i, array) => {
+          const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString(
+            timeZone,
+            dateFormat,
+          );
+          const previousDate = new Date(array[i - 1]?.startTimestamp).toLocaleDateString(
+            timeZone,
+            dateFormat,
+          );
+          const nextDate = new Date(array[i + 1]?.startTimestamp).toLocaleDateString(
+            timeZone,
+            dateFormat,
+          );
 
-        const isTop = currentDate === nextDate && currentDate !== previousDate;
-        const isCenter = currentDate === nextDate && currentDate === previousDate;
-        const isBottom = currentDate !== nextDate && currentDate === previousDate;
-        const standAlone = currentDate !== nextDate && currentDate !== previousDate;
+          const isTop = currentDate === nextDate && currentDate !== previousDate;
+          const isCenter = currentDate === nextDate && currentDate === previousDate;
+          const isBottom = currentDate !== nextDate && currentDate === previousDate;
+          const standAlone = currentDate !== nextDate && currentDate !== previousDate;
 
-        return (
-          <React.Fragment key={timeEntry.id}>
-            {(i === 0 || currentDate !== previousDate) && (
-              <TimeEntryDate startTimestamp={timeEntry.startTimestamp} />
-            )}
-            <TimeEntry
-              isBottom={isBottom}
-              isCenter={isCenter}
-              isTop={isTop}
-              timeEntry={timeEntry}
-              standAlone={standAlone}
-            />
-          </React.Fragment>
-        );
-      })}
+          return (
+            <React.Fragment key={timeEntry.id}>
+              {(i === 0 || currentDate !== previousDate) && (
+                <TimeEntryDate startTimestamp={timeEntry.startTimestamp} />
+              )}
+              <TimeEntry
+                isBottom={isBottom}
+                isCenter={isCenter}
+                isTop={isTop}
+                timeEntry={timeEntry}
+                standAlone={standAlone}
+              />
+            </React.Fragment>
+          );
+        })}
     </>
   );
 }

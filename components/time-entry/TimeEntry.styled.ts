@@ -13,7 +13,7 @@ export const TimeEntry = styled.div<StyledTimeEntryProps>`
   border: solid 1px #e6eaee;
   border-left: 0px;
   display: flex;
-  font-family: Proxima Nova, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   height: 82px;
   justify-content: space-between;
 
