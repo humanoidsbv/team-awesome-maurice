@@ -8,15 +8,16 @@ interface ButtonProps {
   primary?: boolean;
   secondary?: boolean;
   tertiary?: boolean;
+  disabled?: any;
 }
 
-function Button({ children, onClick, primary, secondary, tertiary}: ButtonProps) {
+function Button({ children, onClick, primary, secondary, tertiary, disabled }: ButtonProps) {
   return (
     <>
       {primary && <Styled.ButtonPrimary onClick={onClick}>{children}</Styled.ButtonPrimary>}
       {secondary && <Styled.ButtonSecondary onClick={onClick}>{children}</Styled.ButtonSecondary>}
       {tertiary && (
-        <Styled.ButtonTertiary onClick={onClick} type="submit">
+        <Styled.ButtonTertiary onClick={onClick} type="submit" disabled={disabled}>
           {children}
         </Styled.ButtonTertiary>
       )}

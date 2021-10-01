@@ -11,8 +11,8 @@ import Subheader from "../components/subheader/subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
 
 function App() {
-  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
   const [isOpen, setIsOpen] = useState(false);
+  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
 
   const handleClick = () => {
     setIsOpen(!isOpen);

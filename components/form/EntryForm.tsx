@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
+import { TimeEntryInterface } from "../time-entries/Interface";
 import * as Styled from "./EntryForm.styled";
 import Button from "../button/Button";
-import { TimeEntryInterface } from "../time-entries/Interface";
 
 export interface EntryFormProps {
+  isOpen?: boolean;
   onClose?: () => void;
   onSubmit?: (newTimeEntry) => void;
-  isOpen?: boolean;
 }
 
-function EntryForm({ onClose, onSubmit, isOpen }: EntryFormProps) {
+function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
+  const [enableSubmit, setEnableSubmit] = useState<boolean>(false);
+  const [formValidity, setFormValidity] = useState<any>({});
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntryInterface>({});
-  const [formValidity, setIsFormValidity] = useState<any>({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [event.target.name]: event.target.value });
+    setEnableSubmit(formRef.current?.checkValidity());
     event.preventDefault();
   };
 
@@ -27,13 +30,13 @@ function EntryForm({ onClose, onSubmit, isOpen }: EntryFormProps) {
 
   const checkValidity = (event) => {
     const validation = { ...formValidity, [event.target.name]: event.target.checkValidity() };
-    setIsFormValidity(validation);
+    setFormValidity(validation);
   };
 
   return (
     <>
       <Styled.FormTitle>New Time Entry</Styled.FormTitle>
-      <Styled.EntryFormWrapper isOpen={isOpen} onSubmit={handleSubmit}>
+      <Styled.EntryFormWrapper isOpen={isOpen} onSubmit={handleSubmit} ref={formRef}>
         <Styled.CloseButton onClick={onClose}>
           <img src="/icons/close.svg" alt="close button" />
         </Styled.CloseButton>
@@ -102,7 +105,9 @@ function EntryForm({ onClose, onSubmit, isOpen }: EntryFormProps) {
             value={newTimeEntry.timeto ?? ""}
           />
         </Styled.InputElementWrapper>
-        <Button tertiary>Add</Button>
+        <Button disabled={!enableSubmit} tertiary>
+          Add
+        </Button>
       </Styled.EntryFormWrapper>
     </>
   );

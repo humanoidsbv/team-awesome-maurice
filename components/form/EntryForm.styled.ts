@@ -16,24 +16,23 @@ export const EntryFormWrapper = styled.form<{ isOpen?: boolean }>`
   ${(props) => props.isOpen && `display: flex`};
 
   @media screen and (min-width: 1024px) {
+    align-items: center;
     display: inline-flex;
     flex-direction: row;
     height: 94px;
     justify-content: flex-start;
-    align-items: center;
   }
 `;
 
 export const InputElementWrapper = styled.div<{ smallWidth?: boolean }>`
   height: 62px;
   margin-top: 10px;
-  width: 100%;
   width: ${(props) => (props.smallWidth ? "calc(50% - 6px)" : "100%")};
 
   @media screen and (min-width: 1024px) {
-    width: 14%;
     margin-right: 12px;
     margin-top: 0px;
+    width: 14%;
   }
 `;
 

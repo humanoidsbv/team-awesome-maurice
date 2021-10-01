@@ -18,8 +18,8 @@ export const CurrentPageName = styled.h1`
   color: #354052;
   font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
-	margin-right: 12px;
-	margin-left: 30px;
+  margin-right: 12px;
+  margin-left: 30px;
 `;
 
 export const Divider = styled.div`
