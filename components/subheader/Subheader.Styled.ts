@@ -9,14 +9,14 @@ export const SubheaderWrapper = styled.div`
   padding-bottom: 25px;
   width: 100vw;
 
-  @media screen and (min-width: 0px) and (max-width: 1024px) {
+  @media (${({ theme }) => theme.mobile}) {
     display: none;
   }
 `;
 
 export const CurrentPageName = styled.h1`
   color: #354052;
-  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 18px;
   margin-right: 12px;
   margin-left: 30px;
@@ -31,6 +31,6 @@ export const Divider = styled.div`
 
 export const CurrentPageCount = styled.p`
   color: #7f8fa4;
-  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 14px;
 `;
