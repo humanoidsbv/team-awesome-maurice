@@ -22,14 +22,9 @@ export const CurrentPageName = styled.h1`
   margin-left: 30px;
 `;
 
-export const Divider = styled.div`
-  background: #dfe3e9;
-  height: 14px;
-  margin-right: 12px;
-  width: 1px;
-`;
-
 export const CurrentPageCount = styled.p`
+  border-left: 1px solid #dfe3e9;
+  padding-left: 13px;
   color: #7f8fa4;
   font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;

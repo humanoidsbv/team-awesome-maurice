@@ -19,15 +19,7 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
   return (
     <>
       {[...timeEntries]
-        .sort((a, b) => {
-          if (a.startTimestamp < b.startTimestamp) {
-            return 1;
-          }
-          if (a.startTimestamp > b.startTimestamp) {
-            return -1;
-          }
-          return 0;
-        })
+        .sort((a, b) => (a.startTimestamp > b.startTimestamp ? -1 : 1))
         .map((timeEntry, i, array) => {
           const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString(
             timeZone,
@@ -45,7 +37,6 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
           const isTop = currentDate === nextDate && currentDate !== previousDate;
           const isCenter = currentDate === nextDate && currentDate === previousDate;
           const isBottom = currentDate !== nextDate && currentDate === previousDate;
-          const standAlone = currentDate !== nextDate && currentDate !== previousDate;
 
           return (
             <React.Fragment key={timeEntry.id}>
@@ -57,7 +48,6 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
                 isCenter={isCenter}
                 isTop={isTop}
                 timeEntry={timeEntry}
-                standAlone={standAlone}
               />
             </React.Fragment>
           );

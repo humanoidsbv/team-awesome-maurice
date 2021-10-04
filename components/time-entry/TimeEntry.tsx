@@ -7,11 +7,10 @@ export interface TimeEntryProps {
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
-  standAlone: boolean;
   timeEntry: TimeEntryInterface;
 }
 
-function TimeEntry({ timeEntry, isBottom, isCenter, isTop, standAlone }: TimeEntryProps) {
+function TimeEntry({ timeEntry, isBottom, isCenter, isTop}: TimeEntryProps) {
   const startTime = new Date(timeEntry.startTimestamp);
   const formattedStartTime = startTime.toLocaleTimeString("nl-NL", {
     hour: "2-digit",
@@ -29,13 +28,11 @@ function TimeEntry({ timeEntry, isBottom, isCenter, isTop, standAlone }: TimeEnt
       isBottom={isBottom}
       isCenter={isCenter}
       isTop={isTop}
-      standAlone={standAlone}
     >
       <Styled.TimeEntry
         isBottom={isBottom}
         isCenter={isCenter}
         isTop={isTop}
-        standAlone={standAlone}
       >
         <Styled.TimeEntryClient>{timeEntry.client}</Styled.TimeEntryClient>
         <Styled.TimeEntryTime>

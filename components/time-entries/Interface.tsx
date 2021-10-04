@@ -6,6 +6,6 @@ export interface TimeEntryInterface {
   id?: number;
   startTimestamp?: string;
   stopTimestamp?: string;
-  timefrom?: number;
-  timeto?: number;
+  timeFrom?: number;
+  timeTo?: number;
 }

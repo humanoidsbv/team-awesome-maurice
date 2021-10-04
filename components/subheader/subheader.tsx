@@ -6,7 +6,6 @@ function Subheader({ timeEntries }) {
   return (
     <Styled.SubheaderWrapper>
       <Styled.CurrentPageName>Time Entries</Styled.CurrentPageName>
-      <Styled.Divider />
       <Styled.CurrentPageCount>{`${timeEntries.length} entries`}</Styled.CurrentPageCount>
     </Styled.SubheaderWrapper>
   );

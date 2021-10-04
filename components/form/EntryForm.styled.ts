@@ -4,7 +4,7 @@ export const EntryFormWrapper = styled.form<{ isOpen?: boolean }>`
   background-color: #f5f8fa;
   border: solid 1px #e6eaee;
   border-radius: 4px;
-  display: none;
+  display: ${(props) => props.isOpen ? "flex": "none"};
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -12,8 +12,6 @@ export const EntryFormWrapper = styled.form<{ isOpen?: boolean }>`
   padding: 16px 16px;
   position: relative;
   width: 100%;
-
-  ${(props) => props.isOpen && `display: flex`};
 
   @media screen and (min-width: 1024px) {
     align-items: center;
@@ -68,7 +66,7 @@ export const CloseButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 3px;
+  padding: 4px;
   position: absolute;
   right: 15px;
   top: 20px;

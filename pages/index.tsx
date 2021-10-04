@@ -24,8 +24,8 @@ function App() {
       {
         id: Math.random(),
         client: newTimeEntry.employer,
-        startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timefrom}`).toISOString(),
-        stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timeto}`).toISOString()
+        startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timeFrom}`).toISOString(),
+        stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timeTo}`).toISOString()
       },
     ]);
   };
