@@ -11,7 +11,7 @@ interface ButtonProps {
   disabled?: any;
 }
 
-function Button({ children, onClick, primary, secondary, tertiary, disabled }: ButtonProps) {
+function Button({ children, onClick, primary, secondary, tertiary, disabled}: ButtonProps) {
   return (
     <>
       {primary && <Styled.ButtonPrimary onClick={onClick}>{children}</Styled.ButtonPrimary>}

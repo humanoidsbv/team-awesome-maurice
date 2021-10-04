@@ -35,7 +35,7 @@ export const ButtonTertiary = styled(ButtonPrimary)<{ disabled?: any }>`
       border: 1px solid #999999;
       color: #666666;
     `}
-  
+
   @media (${({ theme }) => theme.desktop}) {
     display: flex;
     height: 36px;
