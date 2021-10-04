@@ -13,7 +13,7 @@ export const EntryFormWrapper = styled.form<{ isOpen?: boolean }>`
   position: relative;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
     display: inline-flex;
     flex-direction: row;
@@ -27,7 +27,7 @@ export const InputElementWrapper = styled.div<{ smallWidth?: boolean }>`
   margin-top: 10px;
   width: ${(props) => (props.smallWidth ? "calc(50% - 6px)" : "100%")};
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     margin-right: 12px;
     margin-top: 0px;
     width: 14%;
@@ -36,12 +36,12 @@ export const InputElementWrapper = styled.div<{ smallWidth?: boolean }>`
 
 export const EntryFormInputTitle = styled.label`
   color: #68768c;
-  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 12px;
   opacity: 0.5;
   text-transform: uppercase;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     font-size: 12px;
   }
 `;
@@ -50,14 +50,14 @@ export const EntryFormInput = styled.input<{ invalid?: boolean }>`
   background-image: linear-gradient(to top, #f2f4f7, #fff);
   border-radius: 4px;
   border: solid 1px ${(props) => (props.invalid ? "#ced0da;" : "#fb6375")};
-  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 14px;
   font-weight: 600;
   margin-top: 12px;
   padding: 9px 15px;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     font-size: 10px;
   }
 `;
@@ -76,19 +76,19 @@ export const CloseButton = styled.button`
     width: 10px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 `;
 
 export const FormTitle = styled.h1`
   color: #354052;
-  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 24px;
   font-weight: normal;
   margin-bottom: 10px;
 
-  @media screen and (min-width: 0px) and (max-width: 1024px) {
+  @media (${({ theme }) => theme.mobile}) {
     display: none;
   }
 `;

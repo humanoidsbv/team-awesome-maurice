@@ -9,11 +9,11 @@ export const Header = styled.header<{ isActive: boolean }>`
 
   .logo {
     color: #fff;
-    font-family: bello-script, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: ${({ theme }) => theme.fontSecondary};
     font-size: 26px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     flex-direction: row;
     height: 70px;
     justify-content: space-between;

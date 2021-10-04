@@ -7,14 +7,14 @@ export const ButtonPrimary = styled.button`
   border: solid 1px #249533;
   color: #fff;
   display: flex;
-  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: ${({theme}) => theme.fontPrimary};
   font-size: 14px;
   font-weight: 500;
   height: 36px;
   justify-content: center;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 `;
@@ -34,7 +34,7 @@ export const ButtonTertiary = styled(ButtonPrimary)`
     color: #666666;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: flex;
     height: 36px;
     margin-left: auto;

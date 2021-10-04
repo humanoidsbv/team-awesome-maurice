@@ -16,13 +16,13 @@ export const UserButton = styled.div`
   margin-right: 10px;
   width: 135px;
 
-  @media screen and (min-width: 0px) and (max-width: 1023px) {
+  @media (${({ theme }) => theme.mobile}) {
     display: none;
   }
 `;
 
 export const CompanyLogo = styled.img`
-  @media screen and (min-width: 1023px) {
+   @media (${({ theme }) => theme.desktop}) {
     display: flex;
     height: 10px;
     margin-left: 12px;
@@ -38,7 +38,7 @@ export const UserImage = styled.img`
 `;
 
 export const ArrowDown = styled.img`
-  @media screen and (min-width: 0px) and (max-width: 1023px) {
+  @media (${({ theme }) => theme.mobile}) {
     display: none;
   }
 `;

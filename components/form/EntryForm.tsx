@@ -37,7 +37,7 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
     <>
       <Styled.FormTitle>New Time Entry</Styled.FormTitle>
       <Styled.EntryFormWrapper isOpen={isOpen} onSubmit={handleSubmit} ref={formRef}>
-        <Styled.CloseButton onClick={onClose}>
+        <Styled.CloseButton onClick={onClose} type="button">
           <img src="/icons/close.svg" alt="close button" />
         </Styled.CloseButton>
         <Styled.InputElementWrapper>

@@ -14,7 +14,7 @@ export const TimeEntry = styled.div<StyledTimeEntryProps>`
   border-radius: 4px;
   border-top-left-radius: 0;
   display: flex;
-  font-family: "Proxima Nova", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: ${({ theme }) => theme.fontPrimary};
   height: 82px;
   justify-content: space-between;
 
