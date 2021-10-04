@@ -5,14 +5,22 @@ import * as Styled from "./Button.styled";
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  type: "Primary" | "Secondary";
+  primary?: boolean;
+  secondary?: boolean;
+  tertiary?: boolean;
+  isDisabled?: boolean;
 }
 
-function Button({ children, onClick, type }: ButtonProps) {
+function Button({ children, onClick, primary, secondary, tertiary, isDisabled }: ButtonProps) {
   return (
     <>
-      {type === "Primary" && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
-      {type === "Secondary" && <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>}
+      {primary && <Styled.ButtonPrimary onClick={onClick}>{children}</Styled.ButtonPrimary>}
+      {secondary && <Styled.ButtonSecondary onClick={onClick}>{children}</Styled.ButtonSecondary>}
+      {tertiary && (
+        <Styled.ButtonTertiary onClick={onClick} type="submit" disabled={isDisabled}>
+          {children}
+        </Styled.ButtonTertiary>
+      )}
     </>
   );
 }

@@ -3,22 +3,29 @@ import React, { useState } from "react";
 import { Icon } from "../components/icon/Icon";
 import * as Styled from "../styles/FirstPageWrapper.styled";
 import Button from "../components/button/Button";
+import EntryForm from "../components/form/EntryForm";
 import GlobalStyle from "../styles/Global";
 import Header from "../components/header/Header";
 import mockTimeEntries from "../fixtures/time-entries";
+import Subheader from "../components/subheader/subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
 
   const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const addNewTimeEntry = (newTimeEntry) => {
     setTimeEntries([
       ...timeEntries,
       {
-        id: 0.8524250995148191,
-        client: "Port of Rotterdam",
-        startTimestamp: "2021-09-25T16:00:00.000Z",
-        stopTimestamp: "2021-09-25T18:00:00.000Z",
+        id: Math.random(),
+        client: newTimeEntry.employer,
+        startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timeFrom}`).toISOString(),
+        stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.timeTo}`).toISOString()
       },
     ]);
   };
@@ -27,11 +34,15 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
+      <Subheader timeEntries={timeEntries} />
       <Styled.FirstPageWrapper>
-        <Button type="Primary" onClick={handleClick}>
-          <Icon />
-          New Time Entry
-        </Button>
+        {!isOpen && (
+          <Button primary onClick={handleClick}>
+            <Icon />
+            New Time Entry
+          </Button>
+        )}
+        <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
         <TimeEntries timeEntries={timeEntries} />
       </Styled.FirstPageWrapper>
     </>

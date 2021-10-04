@@ -1,6 +1,11 @@
 export interface TimeEntryInterface {
-  id: number;
-  client: string;
-  startTimestamp: string;
-  stopTimestamp: string;
+  activity?: string;
+  client?: string;
+  date?: number;
+  employer?: string;
+  id?: number;
+  startTimestamp?: string;
+  stopTimestamp?: string;
+  timeFrom?: number;
+  timeTo?: number;
 }

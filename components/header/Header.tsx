@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import * as Styled from "./StyledHeader.styled";
+import * as Styled from "./Header.styled";
 import Navigation from "../navigation/Navigation";
 import NavigationToggle from "../navigation-toggle/NavigationToggle";
 import User from "../user/User";
