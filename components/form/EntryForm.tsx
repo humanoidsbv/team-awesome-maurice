@@ -7,7 +7,7 @@ import Button from "../button/Button";
 export interface EntryFormProps {
   isOpen: boolean;
   onClose?: () => void;
-  onSubmit: (newTimeEntry) => void;
+  onSubmit: (newTimeEntry: TimeEntryInterface) => void;
 }
 
 function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
@@ -22,13 +22,13 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
     event.preventDefault();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     onSubmit(newTimeEntry);
     setNewTimeEntry({});
   };
 
-  const checkValidity = (event) => {
+  const checkValidity = (event: React.ChangeEvent<HTMLInputElement>) => {
     const validation = { ...formValidity, [event.target.name]: event.target.checkValidity() };
     setFormValidity(validation);
   };
@@ -83,7 +83,7 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
           <Styled.EntryFormInputTitle htmlFor="timeFrom">From</Styled.EntryFormInputTitle>
           <Styled.EntryFormInput
             id="timeFrom"
-            invalid={formValidity.timefrom !== false}
+            invalid={formValidity.timeFrom !== false}
             name="timeFrom"
             onBlur={checkValidity}
             onChange={handleChange}
@@ -96,7 +96,7 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
           <Styled.EntryFormInputTitle htmlFor="timeTo">To</Styled.EntryFormInputTitle>
           <Styled.EntryFormInput
             id="timeTo"
-            invalid={formValidity.timeto !== false}
+            invalid={formValidity.timeTo !== false}
             name="timeTo"
             onBlur={checkValidity}
             onChange={handleChange}
