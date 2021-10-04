@@ -33,7 +33,7 @@ export const NavigationMenuList = styled.li`
   margin-bottom: 26px;
 
   @media (${({ theme }) => theme.desktop}) {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 `;
 

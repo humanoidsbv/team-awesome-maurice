@@ -5,12 +5,13 @@ import { Icon } from "../components/icon/Icon";
 import * as Styled from "../styles/FirstPageWrapper.styled";
 import Button from "../components/button/Button";
 import EntryForm from "../components/form/EntryForm";
-import GlobalStyle from "../styles/Global";
+import GlobalStyle from "../styles/global";
 import Header from "../components/header/Header";
 import mockTimeEntries from "../fixtures/time-entries";
 import Subheader from "../components/subheader/subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
-import { theme } from "../styles/Theme";
+import { theme } from "../styles/theme";
+import { TimeEntryInterface } from "../components/time-entries/Interface";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ function App() {
     setIsOpen(!isOpen);
   };
 
-  const addNewTimeEntry = (newTimeEntry) => {
+  const addNewTimeEntry = (newTimeEntry: TimeEntryInterface) => {
     setTimeEntries([
       ...timeEntries,
       {

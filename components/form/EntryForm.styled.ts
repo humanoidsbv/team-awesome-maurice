@@ -29,7 +29,7 @@ export const InputElementWrapper = styled.div<{ smallWidth?: boolean }>`
 
   @media (${({ theme }) => theme.desktop}) {
     margin-right: 12px;
-    margin-top: 0px;
+    margin-top: 0;
     width: 14%;
   }
 `;
