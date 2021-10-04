@@ -5,9 +5,9 @@ import * as Styled from "./EntryForm.styled";
 import Button from "../button/Button";
 
 export interface EntryFormProps {
-  isOpen?: boolean;
+  isOpen: boolean;
   onClose?: () => void;
-  onSubmit?: (newTimeEntry) => void;
+  onSubmit: (newTimeEntry) => void;
 }
 
 function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
@@ -80,32 +80,32 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
           />
         </Styled.InputElementWrapper>
         <Styled.InputElementWrapper smallWidth>
-          <Styled.EntryFormInputTitle htmlFor="timefrom">From</Styled.EntryFormInputTitle>
+          <Styled.EntryFormInputTitle htmlFor="timeFrom">From</Styled.EntryFormInputTitle>
           <Styled.EntryFormInput
-            id="timefrom"
+            id="timeFrom"
             invalid={formValidity.timefrom !== false}
-            name="timefrom"
+            name="timeFrom"
             onBlur={checkValidity}
             onChange={handleChange}
             required
             type="time"
-            value={newTimeEntry.timefrom ?? ""}
+            value={newTimeEntry.timeFrom ?? ""}
           />
         </Styled.InputElementWrapper>
         <Styled.InputElementWrapper smallWidth>
-          <Styled.EntryFormInputTitle htmlFor="timeto">To</Styled.EntryFormInputTitle>
+          <Styled.EntryFormInputTitle htmlFor="timeTo">To</Styled.EntryFormInputTitle>
           <Styled.EntryFormInput
-            id="timeto"
+            id="timeTo"
             invalid={formValidity.timeto !== false}
-            name="timeto"
+            name="timeTo"
             onBlur={checkValidity}
             onChange={handleChange}
             required
             type="time"
-            value={newTimeEntry.timeto ?? ""}
+            value={newTimeEntry.timeTo ?? ""}
           />
         </Styled.InputElementWrapper>
-        <Button disabled={!enableSubmit} tertiary>
+        <Button isDisabled={!enableSubmit} tertiary>
           Add
         </Button>
       </Styled.EntryFormWrapper>

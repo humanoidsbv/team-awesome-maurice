@@ -4,14 +4,15 @@ export interface StyledTimeEntryProps {
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
-  standAlone: boolean;
 }
 
 export const TimeEntry = styled.div<StyledTimeEntryProps>`
   align-items: center;
-  border-radius: 4px;
   border: solid 1px #e6eaee;
+  border-bottom-left-radius: 0;
   border-left: 0px;
+  border-radius: 4px;
+  border-top-left-radius: 0;
   display: flex;
   font-family: ${({ theme }) => theme.fontPrimary};
   height: 82px;
@@ -24,7 +25,6 @@ export const TimeEntry = styled.div<StyledTimeEntryProps>`
   ${(props) =>
     props.isTop &&
     `border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom: 0px;`};
-  ${(props) => props.standAlone && `border-bottom-left-radius: 0px; border-top-left-radius: 0px`};
 `;
 
 export const TimeEntryClient = styled.span`

@@ -25,22 +25,20 @@ export const ButtonSecondary = styled(ButtonPrimary)`
   color: #354052;
 `;
 
-export const ButtonTertiary = styled(ButtonPrimary)<{ disabled?: any }>`
+export const ButtonTertiary = styled(ButtonPrimary)`
   margin-top: 42px;
 
-  ${(props) =>
-    props.disabled &&
-    `
-      background: #cccccc;
-      border: 1px solid #999999;
-      color: #666666;
-    `}
+  :disabled {
+    background: #cccccc;
+    border: 1px solid #999999;
+    color: #666666;
+  }
 
   @media (${({ theme }) => theme.desktop}) {
     display: flex;
     height: 36px;
     margin-left: auto;
-    margin-top: 0px;
+    margin-top: 0;
     width: 90px;
   }
 `;
