@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as Styled from "./TimeEntry.styled";
-import { TimeEntryInterface } from "../time-entries/Interface";
+import { TimeEntryInterface } from "../Interface";
 
 export interface TimeEntryProps {
   isBottom: boolean;
@@ -11,13 +11,13 @@ export interface TimeEntryProps {
 }
 
 function TimeEntry({ timeEntry, isBottom, isCenter, isTop}: TimeEntryProps) {
-  const startTime = new Date(timeEntry.startTimestamp);
+  const startTime = new Date(timeEntry.startTime);
   const formattedStartTime = startTime.toLocaleTimeString("nl-NL", {
     hour: "2-digit",
     minute: "2-digit",
   });
 
-  const stopTime = new Date(timeEntry.stopTimestamp);
+  const stopTime = new Date(timeEntry.endTime);
   const formattedStopTime = stopTime.toLocaleTimeString("nl-NL", {
     hour: "2-digit",
     minute: "2-digit",

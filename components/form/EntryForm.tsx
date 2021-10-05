@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-import { TimeEntryInterface } from "../time-entries/Interface";
+import { TimeEntryInterface } from "../Interface";
 import * as Styled from "./EntryForm.styled";
 import Button from "../button/Button";
 
@@ -10,9 +10,13 @@ export interface EntryFormProps {
   onSubmit: (newTimeEntry: TimeEntryInterface) => void;
 }
 
+export interface FormValidation {
+  [name: string]: boolean;
+}
+
 function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
   const [enableSubmit, setEnableSubmit] = useState<boolean>(false);
-  const [formValidity, setFormValidity] = useState<any>({});
+  const [formValidity, setFormValidity] = useState<FormValidation>({});
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntryInterface>({});
   const formRef = useRef<HTMLFormElement>(null);
 

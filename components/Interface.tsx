@@ -4,8 +4,8 @@ export interface TimeEntryInterface {
   date?: number;
   employer?: string;
   id?: number;
-  startTimestamp?: string;
-  stopTimestamp?: string;
+  startTime?: string;
+  endTime?: string;
   timeFrom?: number;
   timeTo?: number;
 }
