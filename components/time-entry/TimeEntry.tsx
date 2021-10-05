@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as Styled from "./TimeEntry.styled";
-import { TimeEntryInterface } from "../Interface";
+import { TimeEntryInterface } from "../interface";
 
 export interface TimeEntryProps {
   isBottom: boolean;

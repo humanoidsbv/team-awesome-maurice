@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-import { TimeEntryInterface } from "../Interface";
+import { TimeEntryInterface } from "../interface";
 import * as Styled from "./EntryForm.styled";
 import Button from "../button/Button";
 
@@ -30,6 +30,7 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
     event.preventDefault();
     onSubmit(newTimeEntry);
     setNewTimeEntry({});
+    setEnableSubmit(false);
   };
 
   const checkValidity = (event: React.ChangeEvent<HTMLInputElement>) => {

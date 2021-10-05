@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { getTimeEntries } from "../services/getTimeEntries";
 import { Icon } from "../components/icon/Icon";
 import { theme } from "../styles/theme";
-import { TimeEntryInterface } from "../components/Interface";
+import { TimeEntryInterface } from "../components/interface";
 import * as Styled from "../styles/FirstPageWrapper.styled";
 import Button from "../components/button/Button";
 import EntryForm from "../components/form/EntryForm";
@@ -21,11 +21,12 @@ function App() {
     setIsOpen(!isOpen);
   };
 
-  async function fetchTimeEntries() {
-    setTimeEntries(await getTimeEntries());
-  }
+  console.log(timeEntries);
 
   useEffect(() => {
+    async function fetchTimeEntries() {
+      setTimeEntries(await getTimeEntries());
+    }
     fetchTimeEntries();
   }, []);
 
@@ -36,7 +37,7 @@ function App() {
         id: Math.random(),
         client: newTimeEntry.employer,
         startTime: new Date(`${newTimeEntry.date}T${newTimeEntry.timeFrom}`).toISOString(),
-        endTime: new Date(`${newTimeEntry.date}T${newTimeEntry.timeTo}`).toISOString()
+        endTime: new Date(`${newTimeEntry.date}T${newTimeEntry.timeTo}`).toISOString(),
       },
     ]);
   };

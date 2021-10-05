@@ -1,4 +1,6 @@
-export async function getTimeEntries(): Promise<any> {
+import { TimeEntryInterface } from "../components/interface";
+
+export async function getTimeEntries(): Promise<[TimeEntryInterface]> {
   const response = await fetch("http://localhost:3004/time-entries", {
     method: "GET",
     headers: {
@@ -7,4 +9,4 @@ export async function getTimeEntries(): Promise<any> {
   });
 
   return response.json();
-};
+}

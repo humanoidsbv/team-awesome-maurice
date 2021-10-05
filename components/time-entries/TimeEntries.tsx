@@ -2,7 +2,7 @@ import React from "react";
 
 import TimeEntry from "../time-entry/TimeEntry";
 import TimeEntryDate from "../time-entry-date/TimeEntryDate";
-import { TimeEntryInterface } from "../Interface";
+import { TimeEntryInterface } from "../interface";
 
 interface TimeEntriesProps {
   timeEntries: TimeEntryInterface[];
