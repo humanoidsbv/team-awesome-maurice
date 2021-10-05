@@ -2,7 +2,7 @@ import React from "react";
 
 import TimeEntry from "../time-entry/TimeEntry";
 import TimeEntryDate from "../time-entry-date/TimeEntryDate";
-import { TimeEntryInterface } from "./Interface";
+import { TimeEntryInterface } from "../Interface";
 
 interface TimeEntriesProps {
   timeEntries: TimeEntryInterface[];
@@ -19,17 +19,17 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
   return (
     <>
       {[...timeEntries]
-        .sort((a, b) => (a.startTimestamp > b.startTimestamp ? -1 : 1))
+        .sort((a, b) => (a.startTime > b.startTime ? -1 : 1))
         .map((timeEntry, i, array) => {
-          const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString(
+          const currentDate = new Date(timeEntry.startTime).toLocaleDateString(
             timeZone,
             dateFormat,
           );
-          const previousDate = new Date(array[i - 1]?.startTimestamp).toLocaleDateString(
+          const previousDate = new Date(array[i - 1]?.startTime).toLocaleDateString(
             timeZone,
             dateFormat,
           );
-          const nextDate = new Date(array[i + 1]?.startTimestamp).toLocaleDateString(
+          const nextDate = new Date(array[i + 1]?.startTime).toLocaleDateString(
             timeZone,
             dateFormat,
           );
@@ -41,7 +41,7 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
           return (
             <React.Fragment key={timeEntry.id}>
               {(i === 0 || currentDate !== previousDate) && (
-                <TimeEntryDate startTimestamp={timeEntry.startTimestamp} />
+                <TimeEntryDate startTime={timeEntry.startTime} />
               )}
               <TimeEntry
                 isBottom={isBottom}
