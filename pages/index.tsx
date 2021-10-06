@@ -12,13 +12,12 @@ import GlobalStyle from "../styles/global";
 import Header from "../components/header/Header";
 import Subheader from "../components/subheader/subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
-import FetchErrorMessage from "../components/error-handling/FetchErrorMessage";
+import FetchErrorMessage from "../components/error-handling/ErrorMessage";
 
 export interface errorMessageInterface {
   error: string,
   submessage: string,
-  color: string,
-  border: string
+  type: "error" | "empty",
 }
 
 function App() {
@@ -36,19 +35,17 @@ function App() {
 
       if (response instanceof NotFoundError) {
         setErrorMessage({
-          border: "red",
-          color: "#ffbab9",
           error: "Oops... Something went wrong while loading your data 😭",
           submessage: "Please try again later, or contact your developer at developer@humanoids.nl",
+          type: "error",
         });
         return;
       }
       if (response.length === 0) {
         setErrorMessage({
-          border: "yellow",
-          color: "#feffac",
           error: "No entries have been found yet",
           submessage: "Enter your first Time Entry 😎",
+          type: "empty",
         });
       }
       setTimeEntries(response);
@@ -82,8 +79,11 @@ function App() {
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
-          <TimeEntries timeEntries={timeEntries} />
-          {timeEntries.length === 0 && <FetchErrorMessage message={errorMessage} />}
+          {timeEntries.length ? (
+            <TimeEntries timeEntries={timeEntries} />
+          ) : (
+            <FetchErrorMessage message={errorMessage} />
+          )}
         </Styled.FirstPageWrapper>
       </ThemeProvider>
     </>
