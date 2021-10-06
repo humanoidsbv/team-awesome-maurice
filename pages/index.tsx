@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { getTimeEntries } from "../services/getTimeEntries";
+import { getTimeEntries, NotFoundError } from "../services/getTimeEntries";
 import { Icon } from "../components/icon/Icon";
 import { theme } from "../styles/theme";
 import { TimeEntryInterface } from "../components/interface";
@@ -12,20 +12,43 @@ import GlobalStyle from "../styles/global";
 import Header from "../components/header/Header";
 import Subheader from "../components/subheader/subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
+import FetchErrorMessage from "../components/error-handling/ErrorMessage";
+
+export interface errorMessageInterface {
+  error: string,
+  submessage: string,
+  type: "error" | "empty",
+}
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [timeEntries, setTimeEntries] = useState([]);
+  const [errorMessage, setErrorMessage] = useState<errorMessageInterface>();
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
-  console.log(timeEntries);
-
   useEffect(() => {
     async function fetchTimeEntries() {
-      setTimeEntries(await getTimeEntries());
+      const response = await getTimeEntries();
+
+      if (response instanceof NotFoundError) {
+        setErrorMessage({
+          error: "Oops... Something went wrong while loading your data 😭",
+          submessage: "Please try again later, or contact your developer at developer@humanoids.nl",
+          type: "error",
+        });
+        return;
+      }
+      if (response.length === 0) {
+        setErrorMessage({
+          error: "No entries have been found yet",
+          submessage: "Enter your first Time Entry 😎",
+          type: "empty",
+        });
+      }
+      setTimeEntries(response);
     }
     fetchTimeEntries();
   }, []);
@@ -56,7 +79,11 @@ function App() {
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
-          <TimeEntries timeEntries={timeEntries} />
+          {timeEntries.length ? (
+            <TimeEntries timeEntries={timeEntries} />
+          ) : (
+            <FetchErrorMessage message={errorMessage} />
+          )}
         </Styled.FirstPageWrapper>
       </ThemeProvider>
     </>
