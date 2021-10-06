@@ -19,7 +19,7 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
   return (
     <>
       {[...timeEntries]
-        .sort((a, b) => (a.startTime > b.startTime ? 1 : -1))
+        .sort((a, b) => (a.startTime > b.startTime ? -1 : 1))
         .map((timeEntry, i, array) => {
           const currentDate = new Date(timeEntry.startTime).toLocaleDateString(
             timeZone,
