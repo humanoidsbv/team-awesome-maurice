@@ -7,7 +7,7 @@ export const ButtonPrimary = styled.button`
   border: solid 1px #249533;
   color: #fff;
   display: flex;
-  font-family: ${({theme}) => theme.fontPrimary};
+  font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 14px;
   font-weight: 500;
   height: 36px;
@@ -41,4 +41,13 @@ export const ButtonTertiary = styled(ButtonPrimary)`
     margin-top: 0;
     width: 90px;
   }
+`;
+
+export const ButtonQuaternary = styled(ButtonPrimary)`
+  background-image: linear-gradient(to top, #fb6375, #fb6375);
+  border: solid 1px #fb6375;
+  cursor: pointer;
+  height: 30px;
+  margin-right: auto;
+  width: 79px;
 `;

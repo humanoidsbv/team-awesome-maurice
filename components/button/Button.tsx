@@ -8,10 +8,11 @@ interface ButtonProps {
   primary?: boolean;
   secondary?: boolean;
   tertiary?: boolean;
+  quaternary?: boolean;
   isDisabled?: boolean;
 }
 
-function Button({ children, onClick, primary, secondary, tertiary, isDisabled }: ButtonProps) {
+function Button({ children, onClick, isDisabled, primary, quaternary, secondary, tertiary }: ButtonProps) {
   return (
     <>
       {primary && <Styled.ButtonPrimary onClick={onClick}>{children}</Styled.ButtonPrimary>}
@@ -21,6 +22,7 @@ function Button({ children, onClick, primary, secondary, tertiary, isDisabled }:
           {children}
         </Styled.ButtonTertiary>
       )}
+      {quaternary && <Styled.ButtonQuaternary onClick={onClick}>{children}</Styled.ButtonQuaternary>}
     </>
   );
 }

@@ -31,7 +31,7 @@ function App() {
     setIsOpen(!isOpen);
   };
 
-  async function fetchTimeEntries() {
+  const fetchTimeEntries = async () => {
     const response = await getTimeEntries();
 
     if (response instanceof NotFoundError) {
@@ -75,14 +75,14 @@ function App() {
         <Styled.FirstPageWrapper>
           {!isOpen && (
             <Button primary onClick={handleClick}>
-              <Icon />
+              <Icon plusIcon />
               New Time Entry
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
-          {isLoading && <Loading /> }
+          {isLoading && <Loading />}
           {!isLoading && timeEntries.length ? (
-            <TimeEntries timeEntries={timeEntries} />
+            <TimeEntries fetchTimeEntries={fetchTimeEntries} timeEntries={timeEntries} />
           ) : (
             <FetchErrorMessage message={errorMessage} />
           )}

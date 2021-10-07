@@ -6,9 +6,10 @@ import { TimeEntryInterface } from "../interface";
 
 interface TimeEntriesProps {
   timeEntries: TimeEntryInterface[];
+  fetchTimeEntries?: () => void;
 }
 
-function TimeEntries({ timeEntries }: TimeEntriesProps) {
+function TimeEntries({ fetchTimeEntries, timeEntries }: TimeEntriesProps) {
   const timeZone = "nl-NL";
   const dateFormat = {
     day: "numeric",
@@ -48,6 +49,7 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
                 isCenter={isCenter}
                 isTop={isTop}
                 timeEntry={timeEntry}
+                fetchTimeEntries={fetchTimeEntries}
               />
             </React.Fragment>
           );
