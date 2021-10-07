@@ -3,16 +3,16 @@ import { ThemeProvider } from "styled-components";
 
 import { getTimeEntries, NotFoundError } from "../services/getTimeEntries";
 import { Icon } from "../components/icon/Icon";
+import { postTimeEntries } from "../services/postTimeEntries";
 import { theme } from "../styles/theme";
-import { TimeEntryInterface } from "../components/interface";
 import * as Styled from "../styles/FirstPageWrapper.styled";
 import Button from "../components/button/Button";
 import EntryForm from "../components/form/EntryForm";
+import FetchErrorMessage from "../components/error-handling/ErrorMessage";
 import GlobalStyle from "../styles/global";
 import Header from "../components/header/Header";
 import Subheader from "../components/subheader/subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
-import FetchErrorMessage from "../components/error-handling/ErrorMessage";
 
 export interface errorMessageInterface {
   error: string,
@@ -29,40 +29,34 @@ function App() {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    async function fetchTimeEntries() {
-      const response = await getTimeEntries();
+  async function fetchTimeEntries() {
+    const response = await getTimeEntries();
 
-      if (response instanceof NotFoundError) {
-        setErrorMessage({
-          error: "Oops... Something went wrong while loading your data 😭",
-          submessage: "Please try again later, or contact your developer at developer@humanoids.nl",
-          type: "error",
-        });
-        return;
-      }
-      if (response.length === 0) {
-        setErrorMessage({
-          error: "No entries have been found yet",
-          submessage: "Enter your first Time Entry 😎",
-          type: "empty",
-        });
-      }
-      setTimeEntries(response);
+    if (response instanceof NotFoundError) {
+      setErrorMessage({
+        error: "Oops... Something went wrong while loading your data 😭",
+        submessage: "Please try again later, or contact your developer at developer@humanoids.nl",
+        type: "error",
+      });
+      return;
     }
+    if (response.length === 0) {
+      setErrorMessage({
+        error: "No entries have been found yet",
+        submessage: "Enter your first Time Entry 😎",
+        type: "empty",
+      });
+    }
+    setTimeEntries(response);
+  }
+
+  useEffect(() => {
     fetchTimeEntries();
   }, []);
 
-  const addNewTimeEntry = (newTimeEntry: TimeEntryInterface) => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: Math.random(),
-        client: newTimeEntry.employer,
-        startTime: new Date(`${newTimeEntry.date}T${newTimeEntry.timeFrom}`).toISOString(),
-        endTime: new Date(`${newTimeEntry.date}T${newTimeEntry.timeTo}`).toISOString(),
-      },
-    ]);
+  const addNewTimeEntry = async (newTimeEntry: object) => {
+    await postTimeEntries(newTimeEntry);
+    await fetchTimeEntries();
   };
 
   return (

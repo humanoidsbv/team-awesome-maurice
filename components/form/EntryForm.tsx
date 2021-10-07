@@ -28,7 +28,12 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    onSubmit(newTimeEntry);
+    const formattedResponse = {
+      client: newTimeEntry.client,
+      startTime: new Date(`${newTimeEntry.date}T${newTimeEntry.timeFrom}`).toISOString(),
+      endTime: new Date(`${newTimeEntry.date}T${newTimeEntry.timeTo}`).toISOString(),
+    };
+    onSubmit(formattedResponse);
     setNewTimeEntry({});
     setEnableSubmit(false);
   };
@@ -46,16 +51,16 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
           <img src="/icons/close.svg" alt="close button" />
         </Styled.CloseButton>
         <Styled.InputElementWrapper>
-          <Styled.EntryFormInputTitle htmlFor="employer">Employer</Styled.EntryFormInputTitle>
+          <Styled.EntryFormInputTitle htmlFor="client">Employer</Styled.EntryFormInputTitle>
           <Styled.EntryFormInput
-            id="employer"
-            invalid={formValidity.employer !== false}
-            name="employer"
+            id="client"
+            invalid={formValidity.client !== false}
+            name="client"
             onBlur={checkValidity}
             onChange={handleChange}
             required
             type="text"
-            value={newTimeEntry.employer ?? ""}
+            value={newTimeEntry.client ?? ""}
           />
         </Styled.InputElementWrapper>
         <Styled.InputElementWrapper>
