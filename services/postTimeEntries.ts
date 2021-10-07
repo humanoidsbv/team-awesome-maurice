@@ -7,7 +7,7 @@ export class PostError extends Error {
   }
 }
 
-export async function postTimeEntries(newTimeEntry: object): Promise<TimeEntryInterface[]> {
+export async function postTimeEntries(newTimeEntry: TimeEntryInterface): Promise<TimeEntryInterface[]> {
   return fetch("http://localhost:3004/time-entries", {
     method: "POST",
     headers: {

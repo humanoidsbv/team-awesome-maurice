@@ -7,8 +7,9 @@ import { postTimeEntries } from "../services/postTimeEntries";
 import { theme } from "../styles/theme";
 import * as Styled from "../styles/FirstPageWrapper.styled";
 import Button from "../components/button/Button";
-import EntryForm from "../components/form/EntryForm";
+import EntryForm from "../components/entry-form/EntryForm";
 import FetchErrorMessage from "../components/error-handling/ErrorMessage";
+import Loading from "../components/loading/Loading";
 import GlobalStyle from "../styles/global";
 import Header from "../components/header/Header";
 import Subheader from "../components/subheader/subheader";
@@ -22,6 +23,7 @@ export interface errorMessageInterface {
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [timeEntries, setTimeEntries] = useState([]);
   const [errorMessage, setErrorMessage] = useState<errorMessageInterface>();
 
@@ -40,6 +42,7 @@ function App() {
       });
       return;
     }
+    
     if (response.length === 0) {
       setErrorMessage({
         error: "No entries have been found yet",
@@ -51,12 +54,16 @@ function App() {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     fetchTimeEntries();
+    setTimeout(() => setIsLoading(false), 1000);
   }, []);
 
   const addNewTimeEntry = async (newTimeEntry: object) => {
+    setIsLoading(true);
     await postTimeEntries(newTimeEntry);
     await fetchTimeEntries();
+    setTimeout(() => setIsLoading(false), 1000);
   };
 
   return (
@@ -73,7 +80,8 @@ function App() {
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
-          {timeEntries.length ? (
+          {isLoading && <Loading /> }
+          {!isLoading && timeEntries.length ? (
             <TimeEntries timeEntries={timeEntries} />
           ) : (
             <FetchErrorMessage message={errorMessage} />
