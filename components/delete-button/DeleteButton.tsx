@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as Styled from "./DeleteButton.styled";
-import DeleteIcon from "../delete-icon/DeleteIcon";
+import DeleteIcon from "../delete-icon/DeleteIconWrapper";
 
 interface DeleteButtonProps {
   onClick: () => void;

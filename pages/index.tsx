@@ -6,7 +6,7 @@ import { NotFoundError } from "../services/not-found-error";
 import { postTimeEntries } from "../services/post-time-entries";
 import { theme } from "../styles/theme";
 import * as Styled from "../styles/FirstPageWrapper.styled";
-import AddIcon from "../components/plus-icon/AddIcon";
+import AddIcon from "../components/add-icon/AddIconWrapper";
 import Button from "../components/button/Button";
 import EntryForm from "../components/entry-form/EntryForm";
 import FetchErrorMessage from "../components/error-handling/ErrorMessage";
@@ -75,7 +75,7 @@ function App() {
         <Subheader timeEntries={timeEntries} />
         <Styled.FirstPageWrapper>
           {!isOpen && (
-            <Button primary onClick={handleClick}>
+            <Button buttonType="primary" onClick={handleClick}>
               <AddIcon />
               New Time Entry
             </Button>

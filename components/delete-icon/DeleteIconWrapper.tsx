@@ -1,9 +1,9 @@
 import React from "react";
 
-import * as Styled from "./DeleteIcon.styled";
+import * as Styled from "./DeleteIconWrapper.styled";
 import TrashCanIcon from "../../public/icons/trashcan-icon.svg";
 
-function DeleteIcon() {
+function DeleteIconWrapper() {
   return (
     <Styled.DeleteIcon>
       <TrashCanIcon fill="#fff" />
@@ -11,4 +11,4 @@ function DeleteIcon() {
   );
 }
 
-export default DeleteIcon;
+export default DeleteIconWrapper;

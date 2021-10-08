@@ -1,9 +1,9 @@
 import React from "react";
 
 import PlusIcon from "../../public/icons/plus-icon.svg";
-import * as Styled from "./AddIcon.styled";
+import * as Styled from "./AddIconWrapper.styled";
 
-function AddIcon() {
+function AddIconWrapper() {
   return (
     <>
       <Styled.AddIcon>
@@ -13,4 +13,4 @@ function AddIcon() {
   );
 }
 
-export default AddIcon;
+export default AddIconWrapper;

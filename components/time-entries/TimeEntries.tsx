@@ -5,8 +5,8 @@ import TimeEntryDate from "../time-entry-date/TimeEntryDate";
 import { TimeEntryInterface } from "../interface";
 
 interface TimeEntriesProps {
-  timeEntries: TimeEntryInterface[];
   fetchTimeEntries?: () => void;
+  timeEntries: TimeEntryInterface[];
 }
 
 function TimeEntries({ fetchTimeEntries, timeEntries }: TimeEntriesProps) {
@@ -45,11 +45,11 @@ function TimeEntries({ fetchTimeEntries, timeEntries }: TimeEntriesProps) {
                 <TimeEntryDate startTime={timeEntry.startTime} />
               )}
               <TimeEntry
+                fetchTimeEntries={fetchTimeEntries}
                 isBottom={isBottom}
                 isCenter={isCenter}
                 isTop={isTop}
                 timeEntry={timeEntry}
-                fetchTimeEntries={fetchTimeEntries}
               />
             </React.Fragment>
           );
