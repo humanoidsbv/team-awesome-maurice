@@ -115,7 +115,7 @@ function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
             value={newTimeEntry.timeTo ?? ""}
           />
         </Styled.InputElementWrapper>
-        <Button isDisabled={!enableSubmit} tertiary>
+        <Button buttonType="secondary" isDisabled={!enableSubmit}>
           Add
         </Button>
       </Styled.EntryFormWrapper>

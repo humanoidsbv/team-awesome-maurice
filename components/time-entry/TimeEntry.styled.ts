@@ -25,11 +25,21 @@ export const TimeEntry = styled.div<StyledTimeEntryProps>`
   ${(props) =>
     props.isTop &&
     `border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom: 0px;`};
+
+  button {
+    display: none;
+  }
+
+  :hover {
+    button {
+      display: flex;
+    }
+  }
 `;
 
 export const TimeEntryClient = styled.span`
   font-size: 16px;
-  padding-left: 16px;
+  padding: 0 16px;
 `;
 
 export const TimeEntryTime = styled.span`

@@ -2,7 +2,11 @@ import React from "react";
 
 import * as Styled from "./Navigation.styled";
 
-function Navigation({ isActive }) {
+interface NavigationProps {
+  isActive: boolean;
+}
+
+function Navigation({ isActive }: NavigationProps) {
   return (
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>

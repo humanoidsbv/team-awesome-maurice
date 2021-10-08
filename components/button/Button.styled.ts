@@ -6,8 +6,9 @@ export const ButtonPrimary = styled.button`
   border-radius: 4px;
   border: solid 1px #249533;
   color: #fff;
+  cursor: pointer;
   display: flex;
-  font-family: ${({theme}) => theme.fontPrimary};
+  font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 14px;
   font-weight: 500;
   height: 36px;
@@ -42,3 +43,4 @@ export const ButtonTertiary = styled(ButtonPrimary)`
     width: 90px;
   }
 `;
+

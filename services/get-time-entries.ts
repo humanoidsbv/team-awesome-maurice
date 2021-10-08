@@ -1,11 +1,5 @@
 import { TimeEntryInterface } from "../components/interface";
-
-export class NotFoundError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "No entries found";
-  }
-}
+import { NotFoundError } from "./not-found-error";
 
 export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
   return fetch("http://localhost:3004/time-entries", {

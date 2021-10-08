@@ -5,10 +5,11 @@ import TimeEntryDate from "../time-entry-date/TimeEntryDate";
 import { TimeEntryInterface } from "../interface";
 
 interface TimeEntriesProps {
+  fetchTimeEntries?: () => void;
   timeEntries: TimeEntryInterface[];
 }
 
-function TimeEntries({ timeEntries }: TimeEntriesProps) {
+function TimeEntries({ fetchTimeEntries, timeEntries }: TimeEntriesProps) {
   const timeZone = "nl-NL";
   const dateFormat = {
     day: "numeric",
@@ -44,6 +45,7 @@ function TimeEntries({ timeEntries }: TimeEntriesProps) {
                 <TimeEntryDate startTime={timeEntry.startTime} />
               )}
               <TimeEntry
+                fetchTimeEntries={fetchTimeEntries}
                 isBottom={isBottom}
                 isCenter={isCenter}
                 isTop={isTop}

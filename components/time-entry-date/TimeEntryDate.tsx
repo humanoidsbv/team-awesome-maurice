@@ -1,11 +1,11 @@
 import React from "react";
 import * as Styled from "./TimeEntryDate.styled";
 
-interface EntryDateProps {
+interface TimeEntryDateProps {
   startTime: string;
 }
 
-function TimeEntryDate({ startTime }: EntryDateProps) {
+function TimeEntryDate({ startTime }: TimeEntryDateProps) {
   const date = new Date(startTime);
 
   const formattedDate = date.toLocaleDateString("nl-NL", {

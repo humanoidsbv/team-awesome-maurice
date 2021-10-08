@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const Icon = styled.div`
+export const AddIcon = styled.div`
   margin-right: 16px;
 `;
