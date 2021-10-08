@@ -43,11 +43,3 @@ export const ButtonTertiary = styled(ButtonPrimary)`
   }
 `;
 
-export const ButtonQuaternary = styled(ButtonPrimary)`
-  background-image: linear-gradient(to top, #fb6375, #fb6375);
-  border: solid 1px #fb6375;
-  cursor: pointer;
-  height: 30px;
-  margin-right: auto;
-  width: 79px;
-`;

@@ -9,8 +9,10 @@ export const DeleteButton = styled.button`
   cursor: pointer;
   display: flex;
   font-family: ${({ theme }) => theme.fontPrimary};
-  height: 30px;
+  font-size: 14px;
+  height: auto;
   justify-content: center;
   margin-right: auto;
-  width: 79px;
+  padding: 6px;
+  width: fit-content;
 `;
