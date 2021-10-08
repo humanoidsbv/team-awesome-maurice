@@ -4,15 +4,14 @@ import * as Styled from "./Button.styled";
 
 interface ButtonProps {
   children: React.ReactNode;
+  isDisabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   primary?: boolean;
   secondary?: boolean;
   tertiary?: boolean;
-  quaternary?: boolean;
-  isDisabled?: boolean;
 }
 
-function Button({ children, onClick, isDisabled, primary, quaternary, secondary, tertiary }: ButtonProps) {
+function Button({ children, isDisabled, onClick, primary, secondary, tertiary }: ButtonProps) {
   return (
     <>
       {primary && <Styled.ButtonPrimary onClick={onClick}>{children}</Styled.ButtonPrimary>}
@@ -22,7 +21,6 @@ function Button({ children, onClick, isDisabled, primary, quaternary, secondary,
           {children}
         </Styled.ButtonTertiary>
       )}
-      {quaternary && <Styled.ButtonQuaternary onClick={onClick}>{children}</Styled.ButtonQuaternary>}
     </>
   );
 }

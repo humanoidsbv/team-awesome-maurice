@@ -17,7 +17,7 @@ export async function postTimeEntries(newTimeEntry: TimeEntryInterface): Promise
   })
     .then((response) => {
       if (response.status !== 201) {
-        throw new PostError(response.toString());
+        throw new Error(response.toString());
       }
 
       return response;

@@ -1,17 +1,16 @@
 import React from "react";
 
 import * as Styled from "./TimeEntry.styled";
-import Button from "../button/Button";
-import { Icon } from "../icon/Icon";
 import { TimeEntryInterface } from "../interface";
-import { deleteTimeEntries } from "../../services/deleteTimeEntries";
+import { deleteTimeEntries } from "../../services/delete-time-entries";
+import { DeleteButton } from "../delete-button/DeleteButton";
 
 export interface TimeEntryProps {
+  fetchTimeEntries?: () => void;
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
   timeEntry: TimeEntryInterface;
-  fetchTimeEntries?: () => void;
 }
 
 function TimeEntry({ fetchTimeEntries, isBottom, isCenter, isTop, timeEntry }: TimeEntryProps) {
@@ -36,10 +35,7 @@ function TimeEntry({ fetchTimeEntries, isBottom, isCenter, isTop, timeEntry }: T
     <Styled.TimeEntryWrapper isBottom={isBottom} isCenter={isCenter} isTop={isTop}>
       <Styled.TimeEntry isBottom={isBottom} isCenter={isCenter} isTop={isTop}>
         <Styled.TimeEntryClient>{timeEntry.client}</Styled.TimeEntryClient>
-        <Button onClick={handleDelete} quaternary>
-          <Icon deleteIcon />
-          delete
-        </Button>
+        <DeleteButton onClick={handleDelete} />
         <Styled.TimeEntryTime>
           {formattedStartTime}
           <span> - </span>

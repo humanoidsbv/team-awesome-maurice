@@ -2,7 +2,12 @@ import React from "react";
 
 import * as Styled from "./NavigationToggle.styled";
 
-function NavigationToggle({ isActive, onClick }) {
+interface NavigationToggleProps {
+  isActive: boolean;
+  onClick: () => void;
+}
+
+function NavigationToggle({ isActive, onClick }: NavigationToggleProps) {
   return <Styled.NavigationToggle isActive={isActive} onClick={onClick} />;
 }
 

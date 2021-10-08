@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { getTimeEntries, NotFoundError } from "../services/getTimeEntries";
-import { Icon } from "../components/icon/Icon";
-import { postTimeEntries } from "../services/postTimeEntries";
+import { getTimeEntries } from "../services/get-time-entries";
+import { NotFoundError } from "../services/not-found-error";
+import { postTimeEntries } from "../services/post-time-entries";
 import { theme } from "../styles/theme";
 import * as Styled from "../styles/FirstPageWrapper.styled";
+import AddIcon from "../components/plus-icon/AddIcon";
 import Button from "../components/button/Button";
 import EntryForm from "../components/entry-form/EntryForm";
 import FetchErrorMessage from "../components/error-handling/ErrorMessage";
-import Loading from "../components/loading/Loading";
 import GlobalStyle from "../styles/global";
 import Header from "../components/header/Header";
-import Subheader from "../components/subheader/subheader";
+import Loading from "../components/loading/Loading";
+import Subheader from "../components/subheader/Subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
 
-export interface errorMessageInterface {
+export interface ErrorMessageProps {
   error: string,
   submessage: string,
   type: "error" | "empty",
@@ -25,7 +26,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [timeEntries, setTimeEntries] = useState([]);
-  const [errorMessage, setErrorMessage] = useState<errorMessageInterface>();
+  const [errorMessage, setErrorMessage] = useState<ErrorMessageProps>();
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -75,7 +76,7 @@ function App() {
         <Styled.FirstPageWrapper>
           {!isOpen && (
             <Button primary onClick={handleClick}>
-              <Icon plusIcon />
+              <AddIcon />
               New Time Entry
             </Button>
           )}
