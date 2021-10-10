@@ -9,7 +9,7 @@ interface ButtonProps {
   buttonType?: "primary" | "secondary";
 }
 
-function Button({ children, buttonType, isDisabled, onClick }: ButtonProps) {
+const Button = ({ children, buttonType, isDisabled, onClick }: ButtonProps) => {
   return (
     <>
       {buttonType === "primary" ? (

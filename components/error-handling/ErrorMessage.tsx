@@ -1,12 +1,13 @@
 import React from "react";
-import { errorMessageInterface } from "../../pages";
+
+import { ErrorMessageProps } from "../../pages";
 import * as Styled from "./ErrorMessage.styled";
 
 interface FetchErrorMessageProps {
-  message: errorMessageInterface;
+  message: ErrorMessageProps;
 }
 
-function ErrorMessage({ message }: FetchErrorMessageProps) {
+const ErrorMessage = ({ message }: FetchErrorMessageProps) => {
   return (
     <Styled.ErrorMessageWrapper type={message?.type}>
       <Styled.ErrorMessage>{message?.error}</Styled.ErrorMessage>

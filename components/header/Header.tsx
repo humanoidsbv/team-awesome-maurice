@@ -5,7 +5,7 @@ import Navigation from "../navigation/Navigation";
 import NavigationToggle from "../navigation-toggle/NavigationToggle";
 import User from "../user/User";
 
-function Header() {
+const Header = () => {
   const [isActive, setIsActive] = useState<boolean>(false); // state for opening/closing mobile navigation
 
   return (

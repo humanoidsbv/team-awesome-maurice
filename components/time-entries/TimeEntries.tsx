@@ -9,7 +9,7 @@ interface TimeEntriesProps {
   timeEntries: TimeEntryInterface[];
 }
 
-function TimeEntries({ fetchTimeEntries, timeEntries }: TimeEntriesProps) {
+const TimeEntries = ({ fetchTimeEntries, timeEntries }: TimeEntriesProps) => {
   const timeZone = "nl-NL";
   const dateFormat = {
     day: "numeric",

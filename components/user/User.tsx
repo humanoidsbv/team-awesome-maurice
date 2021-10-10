@@ -2,7 +2,7 @@ import React from "react";
 
 import * as Styled from "./User.styled";
 
-function User() {
+const User = () => {
   return (
     <Styled.UserWrapper>
       <Styled.UserButton>

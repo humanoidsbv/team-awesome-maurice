@@ -14,7 +14,7 @@ export interface FormValidation {
   [name: string]: boolean;
 }
 
-function EntryForm({ isOpen, onClose, onSubmit }: EntryFormProps) {
+const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
   const [enableSubmit, setEnableSubmit] = useState<boolean>(false);
   const [formValidity, setFormValidity] = useState<FormValidation>({});
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntryInterface>({});

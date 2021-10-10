@@ -13,7 +13,7 @@ export interface TimeEntryProps {
   timeEntry: TimeEntryInterface;
 }
 
-function TimeEntry({ fetchTimeEntries, isBottom, isCenter, isTop, timeEntry }: TimeEntryProps) {
+const TimeEntry = ({ fetchTimeEntries, isBottom, isCenter, isTop, timeEntry }: TimeEntryProps) => {
   const startTime = new Date(timeEntry.startTime);
   const formattedStartTime = startTime.toLocaleTimeString("nl-NL", {
     hour: "2-digit",

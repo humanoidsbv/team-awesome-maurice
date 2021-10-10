@@ -22,7 +22,7 @@ export interface ErrorMessageProps {
   type: "error" | "empty";
 }
 
-function HomePage() {
+const HomePage = () => {
   const state = useContext(StoreContext);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);

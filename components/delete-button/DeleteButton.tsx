@@ -7,7 +7,7 @@ interface DeleteButtonProps {
   onClick: () => void;
 }
 
-export function DeleteButton({ onClick }: DeleteButtonProps) {
+const DeleteButton = ({ onClick }: DeleteButtonProps) => {
   return (
     <>
       <Styled.DeleteButton onClick={onClick}>
@@ -17,3 +17,5 @@ export function DeleteButton({ onClick }: DeleteButtonProps) {
     </>
   );
 }
+
+export default DeleteButton;

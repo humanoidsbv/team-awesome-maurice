@@ -5,7 +5,7 @@ interface TimeEntryDateProps {
   startTime: string;
 }
 
-function TimeEntryDate({ startTime }: TimeEntryDateProps) {
+const TimeEntryDate = ({ startTime }: TimeEntryDateProps) => {
   const date = new Date(startTime);
 
   const formattedDate = date.toLocaleDateString("nl-NL", {

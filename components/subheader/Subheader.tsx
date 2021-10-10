@@ -7,7 +7,7 @@ interface SubheaderProps {
   timeEntries: TimeEntryInterface[]
 }
 
-function Subheader({ timeEntries }: SubheaderProps) {
+const Subheader = ({ timeEntries }: SubheaderProps) => {
   return (
     <Styled.SubheaderWrapper>
       <Styled.CurrentPageName>Time Entries</Styled.CurrentPageName>

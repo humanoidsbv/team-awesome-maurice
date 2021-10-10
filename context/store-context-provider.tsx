@@ -15,7 +15,7 @@ interface StoreProviderProps {
 
 export const StoreContext = createContext<StoreContextProps>(null);
 
-export function StoreProvider({ children }: StoreProviderProps) {
+export const StoreProvider = ({ children }: StoreProviderProps) => {
 	const store = {
 		timeEntries: useState([]),
 	};
