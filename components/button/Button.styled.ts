@@ -21,12 +21,6 @@ export const ButtonPrimary = styled.button`
 `;
 
 export const ButtonSecondary = styled(ButtonPrimary)`
-  background-image: linear-gradient(to top, #f2f4f7, #fff);
-  border: solid 1px #ced0da;
-  color: #354052;
-`;
-
-export const ButtonTertiary = styled(ButtonPrimary)`
   margin-top: 42px;
 
   :disabled {
