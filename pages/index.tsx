@@ -23,13 +23,11 @@ export interface ErrorMessageProps {
 }
 
 const HomePage = () => {
-  const state = useContext(StoreContext);
-
   const [errorMessage, setErrorMessage] = useState<ErrorMessageProps>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [timeEntries, setTimeEntries] = state.timeEntries;
-
+  const [timeEntries, setTimeEntries] = useContext(StoreContext).timeEntries;
+  
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -92,6 +90,6 @@ const HomePage = () => {
       </ThemeProvider>
     </>
   );
-}
+};
 
 export default HomePage;
