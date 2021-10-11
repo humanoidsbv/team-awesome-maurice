@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
 import { getTimeEntries } from "../services/get-time-entries";
 import { NotFoundError } from "../services/not-found-error";
 import { postTimeEntries } from "../services/post-time-entries";
+import { StoreContext } from "../context/store-context-provider";
 import { theme } from "../styles/theme";
 import * as Styled from "../styles/FirstPageWrapper.styled";
 import AddIcon from "../components/add-icon/AddIconWrapper";
 import Button from "../components/button/Button";
 import EntryForm from "../components/entry-form/EntryForm";
 import FetchErrorMessage from "../components/error-handling/ErrorMessage";
-import GlobalStyle from "../styles/global";
 import Header from "../components/header/Header";
 import Loading from "../components/loading/Loading";
 import Subheader from "../components/subheader/Subheader";
 import TimeEntries from "../components/time-entries/TimeEntries";
 
 export interface ErrorMessageProps {
-  error: string,
-  submessage: string,
-  type: "error" | "empty",
+  error: string;
+  submessage: string;
+  type: "error" | "empty";
 }
 
-function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [timeEntries, setTimeEntries] = useState([]);
+const HomePage = () => {
   const [errorMessage, setErrorMessage] = useState<ErrorMessageProps>();
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [timeEntries, setTimeEntries] = useContext(StoreContext).timeEntries;
+  
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -43,7 +43,7 @@ function App() {
       });
       return;
     }
-    
+
     if (response.length === 0) {
       setErrorMessage({
         error: "No entries have been found yet",
@@ -52,7 +52,7 @@ function App() {
       });
     }
     setTimeEntries(response);
-  }
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -69,7 +69,6 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Header />
         <Subheader timeEntries={timeEntries} />
@@ -91,6 +90,6 @@ function App() {
       </ThemeProvider>
     </>
   );
-}
+};
 
-export default App;
+export default HomePage;

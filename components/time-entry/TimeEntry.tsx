@@ -1,9 +1,9 @@
 import React from "react";
 
-import * as Styled from "./TimeEntry.styled";
-import { TimeEntryInterface } from "../interface";
 import { deleteTimeEntries } from "../../services/delete-time-entries";
-import { DeleteButton } from "../delete-button/DeleteButton";
+import { TimeEntryInterface } from "../interface";
+import * as Styled from "./TimeEntry.styled";
+import DeleteButton from "../delete-button/DeleteButton";
 
 export interface TimeEntryProps {
   fetchTimeEntries?: () => void;
@@ -13,7 +13,7 @@ export interface TimeEntryProps {
   timeEntry: TimeEntryInterface;
 }
 
-function TimeEntry({ fetchTimeEntries, isBottom, isCenter, isTop, timeEntry }: TimeEntryProps) {
+const TimeEntry = ({ fetchTimeEntries, isBottom, isCenter, isTop, timeEntry }: TimeEntryProps) => {
   const startTime = new Date(timeEntry.startTime);
   const formattedStartTime = startTime.toLocaleTimeString("nl-NL", {
     hour: "2-digit",

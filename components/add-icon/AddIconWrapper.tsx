@@ -3,7 +3,7 @@ import React from "react";
 import PlusIcon from "../../public/icons/plus-icon.svg";
 import * as Styled from "./AddIconWrapper.styled";
 
-function AddIconWrapper() {
+const AddIconWrapper = () => {
   return (
     <>
       <Styled.AddIcon>

@@ -7,7 +7,7 @@ interface NavigationToggleProps {
   onClick: () => void;
 }
 
-function NavigationToggle({ isActive, onClick }: NavigationToggleProps) {
+const NavigationToggle = ({ isActive, onClick }: NavigationToggleProps) => {
   return <Styled.NavigationToggle isActive={isActive} onClick={onClick} />;
 }
 

@@ -6,7 +6,7 @@ interface NavigationProps {
   isActive: boolean;
 }
 
-function Navigation({ isActive }: NavigationProps) {
+const Navigation = ({ isActive }: NavigationProps) => {
   return (
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>
