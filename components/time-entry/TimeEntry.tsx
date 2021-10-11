@@ -1,9 +1,9 @@
 import React from "react";
 
-import * as Styled from "./TimeEntry.styled";
-import { TimeEntryInterface } from "../interface";
 import { deleteTimeEntries } from "../../services/delete-time-entries";
-import { DeleteButton } from "../delete-button/DeleteButton";
+import { TimeEntryInterface } from "../interface";
+import * as Styled from "./TimeEntry.styled";
+import DeleteButton from "../delete-button/DeleteButton";
 
 export interface TimeEntryProps {
   fetchTimeEntries?: () => void;

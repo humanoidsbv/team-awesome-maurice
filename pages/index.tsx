@@ -24,10 +24,11 @@ export interface ErrorMessageProps {
 
 const HomePage = () => {
   const state = useContext(StoreContext);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [timeEntries, setTimeEntries] = state.timeEntries;
+
   const [errorMessage, setErrorMessage] = useState<ErrorMessageProps>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [timeEntries, setTimeEntries] = state.timeEntries;
 
   const handleClick = () => {
     setIsOpen(!isOpen);
