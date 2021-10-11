@@ -19,9 +19,7 @@ const TimeEntries = ({ fetchTimeEntries, timeEntries }: TimeEntriesProps) => {
 
   return (
     <>
-      {[...timeEntries]
-        .sort((a, b) => (a.startTime > b.startTime ? -1 : 1))
-        .map((timeEntry, i, array) => {
+      {[...timeEntries].map((timeEntry, i, array) => {
           const currentDate = new Date(timeEntry.startTime).toLocaleDateString(
             timeZone,
             dateFormat,
