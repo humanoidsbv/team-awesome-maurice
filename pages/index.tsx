@@ -1,12 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
 
-import { getTimeEntries } from "../services/get-time-entries";
+import { getTimeEntries, postTimeEntries } from "../services/time-entries-api";
 import { NotFoundError } from "../services/not-found-error";
-import { postTimeEntries } from "../services/post-time-entries";
 import { StoreContext } from "../context/store-context-provider";
-import { theme } from "../styles/theme";
-import * as Styled from "../styles/FirstPageWrapper.styled";
+import * as Styled from "../styles/pagewrapper.styled";
 import AddIcon from "../components/add-icon/AddIconWrapper";
 import Button from "../components/button/Button";
 import EntryForm from "../components/entry-form/EntryForm";
@@ -69,25 +66,23 @@ const HomePage = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Header />
-        <Subheader timeEntries={timeEntries} />
-        <Styled.FirstPageWrapper>
-          {!isOpen && (
-            <Button buttonType="primary" onClick={handleClick}>
-              <AddIcon />
-              New Time Entry
-            </Button>
-          )}
-          <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
-          {isLoading && <Loading />}
-          {!isLoading && timeEntries.length ? (
-            <TimeEntries fetchTimeEntries={fetchTimeEntries} timeEntries={timeEntries} />
-          ) : (
-            <FetchErrorMessage message={errorMessage} />
-          )}
-        </Styled.FirstPageWrapper>
-      </ThemeProvider>
+      <Header />
+      <Subheader description={`${timeEntries.length} entries`} title="Time entries" />
+      <Styled.PageWrapper>
+        {!isOpen && (
+          <Button buttonType="primary" onClick={handleClick}>
+            <AddIcon />
+            New Time Entry
+          </Button>
+        )}
+        <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
+        {isLoading && <Loading />}
+        {!isLoading && timeEntries.length ? (
+          <TimeEntries fetchTimeEntries={fetchTimeEntries} timeEntries={timeEntries} />
+        ) : (
+          <FetchErrorMessage message={errorMessage} />
+        )}
+      </Styled.PageWrapper>
     </>
   );
 };

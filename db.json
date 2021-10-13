@@ -8,18 +8,46 @@
       "activity": "Testing"
     },
     {
-      "client": "Port of Rotterdam",
-      "endTime": "2020-03-10T09:30:00.000Z",
-      "id": 2,
-      "startTime": "2020-03-10T07:30:00.000Z",
-      "activity": "Design"
-    },
-    {
       "client": "Hike One",
       "endTime": "2020-03-12T17:30:00.000Z",
       "id": 3,
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
+    },
+    {
+      "client": "Humanoids",
+      "startTime": "2020-03-11T09:00:00.000Z",
+      "endTime": "2020-03-11T17:00:00.000Z",
+      "id": 4
+    }
+  ],
+  "team-members": [
+    {
+      "id": 1,
+      "firstName": "Niels",
+      "lastName": "Brandhorst",
+      "role": "UX Designer",
+      "employeeNumber": "HUM_001",
+      "currentEmployer": "Hike one",
+      "startingDate": "February 2018"
+    },
+    {
+      "id": 2,
+      "firstName": "Maurice",
+      "lastName": "Markslag",
+      "role": "Front-end Developer",
+      "employeeNumber": "HUM_002",
+      "currentEmployer": "N.M.D.",
+      "startingDate": "October 2021"
+    },
+    {
+      "id": 3,
+      "firstName": "Sara",
+      "lastName": "van den Berg",
+      "role": "Front-end Developer",
+      "employeeNumber": "HUM_003",
+      "currentEmployer": "N.M.D.",
+      "startingDate": "October 2021"
     }
   ]
 }

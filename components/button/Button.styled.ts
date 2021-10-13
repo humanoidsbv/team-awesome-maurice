@@ -29,12 +29,15 @@ export const ButtonSecondary = styled(ButtonPrimary)`
     color: #666666;
   }
 
+  @media (${({ theme }) => theme.mobile}) {
+    display: none;
+  }
+
   @media (${({ theme }) => theme.desktop}) {
     display: flex;
-    height: 36px;
     margin-left: auto;
     margin-top: 0;
-    width: 90px;
+    max-width: 156px;
   }
 `;
 

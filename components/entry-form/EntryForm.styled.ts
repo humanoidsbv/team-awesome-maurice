@@ -92,3 +92,8 @@ export const FormTitle = styled.h1`
     display: none;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  margin-left: auto;
+  width: 90px;
+`

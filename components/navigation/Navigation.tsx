@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 import * as Styled from "./Navigation.styled";
@@ -11,12 +12,14 @@ const Navigation = ({ isActive }: NavigationProps) => {
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem selected href="#">
-            Timesheets
-          </Styled.NavigationMenuItem>
+          <Link href="/">
+            <Styled.NavigationMenuItem selected>Timesheets</Styled.NavigationMenuItem>
+          </Link>
         </Styled.NavigationMenuList>
         <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem href="#">Team members</Styled.NavigationMenuItem>
+          <Link href="/team-members-page">
+            <Styled.NavigationMenuItem>Team members</Styled.NavigationMenuItem>
+          </Link>
         </Styled.NavigationMenuList>
         <Styled.NavigationMenuList>
           <Styled.NavigationMenuItem href="#">Projects</Styled.NavigationMenuItem>
@@ -30,6 +33,6 @@ const Navigation = ({ isActive }: NavigationProps) => {
       </Styled.NavigationMenu>
     </Styled.Navigation>
   );
-}
+};
 
 export default Navigation;
