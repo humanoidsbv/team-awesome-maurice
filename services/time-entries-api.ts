@@ -19,7 +19,7 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
     .catch((error) => error);
 }
 
-export async function postTimeEntries(
+export async function createTimeEntry(
   newTimeEntry: TimeEntryInterface,
 ): Promise<TimeEntryInterface[]> {
   return fetch("http://localhost:3004/time-entries", {

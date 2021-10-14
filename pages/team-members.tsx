@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { ErrorMessageProps } from "./index";
-import { getTeamMembers, postTeamMembers } from "../services/team-members-api";
+import { getTeamMembers, createTeamMember } from "../services/team-members-api";
 import { NotFoundError } from "../services/not-found-error";
 import * as Styled from "../styles/PageWrapper.styled";
 import Header from "../components/header/Header";
@@ -46,7 +46,7 @@ const TeamMembersPage = () => {
   }, []);
 
   const addNewTeamMember = async (newTeamMember: object) => {
-    await postTeamMembers(newTeamMember);
+    await createTeamMember(newTeamMember);
     await fetchTeamMembers();
   };
 
@@ -56,7 +56,7 @@ const TeamMembersPage = () => {
       <Subheader title="Team members" description={`${teamMembers.length} humanoids`} />
       <Styled.PageWrapper>
         <TeamMembersHeading handleClick={handleClick} isOpen={isOpen} />
-        {isOpen && <TeamMemberForm onSubmit={addNewTeamMember} />}
+        {isOpen && <TeamMemberForm onSubmit={addNewTeamMember} teamMembers={teamMembers} />}
         <TeamMembers teamMembers={teamMembers} />
       </Styled.PageWrapper>
     </>

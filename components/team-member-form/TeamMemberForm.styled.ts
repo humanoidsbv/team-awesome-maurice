@@ -3,10 +3,7 @@ import styled from "styled-components";
 export const TeamMemberForm = styled.form<{ onCancel?: boolean }>`
   border: solid 1px #e6eaee;
   border-left: solid 4px #4f88ef !important;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
+  border-radius: 0 4px 4px 4px;
   position: relative;
   margin-top: 70px; // for dev purposes, check later whether should delete
 

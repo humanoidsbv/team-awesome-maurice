@@ -15,14 +15,14 @@ export interface FormValidation {
 }
 
 const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
-  const [enableSubmit, setEnableSubmit] = useState<boolean>(false);
+  const [isSubmitEnabled, setIsSubmitEnabled] = useState<boolean>(false);
   const [formValidity, setFormValidity] = useState<FormValidation>({});
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntryInterface>({});
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [event.target.name]: event.target.value });
-    setEnableSubmit(formRef.current?.checkValidity());
+    setIsSubmitEnabled(formRef.current?.checkValidity());
     event.preventDefault();
   };
 
@@ -35,7 +35,7 @@ const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
     };
     onSubmit(formattedResponse);
     setNewTimeEntry({});
-    setEnableSubmit(false);
+    setIsSubmitEnabled(false);
   };
 
   const checkValidity = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -116,7 +116,7 @@ const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
           />
         </Styled.InputElementWrapper>
         <Styled.ButtonWrapper>
-          <Button fullWidth desktopWidth disabled={!enableSubmit}>
+          <Button fullWidth desktopWidth disabled={!isSubmitEnabled}>
             Add
           </Button>
         </Styled.ButtonWrapper>

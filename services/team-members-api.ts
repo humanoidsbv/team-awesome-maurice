@@ -19,7 +19,7 @@ export async function getTeamMembers() {
     .catch((error) => error);
 }
 
-export async function postTeamMembers(newTeamMember: TeamMemberInterface) {
+export async function createTeamMember(newTeamMember: TeamMemberInterface) {
   return fetch("http://localhost:3004/team-members", {
     method: "POST",
     headers: {

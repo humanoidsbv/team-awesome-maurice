@@ -11,8 +11,6 @@ interface NavigationProps {
 const Navigation = ({ isActive }: NavigationProps) => {
   const router = useRouter();
 
-  
-
   return (
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>

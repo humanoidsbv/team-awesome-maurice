@@ -11,16 +11,15 @@ const TeamMembers = ({ teamMembers }: TeamMembersProps) => {
   return (
     <>
       {[...teamMembers].map((teamMember) => (
-        <React.Fragment key={teamMember.id}>
-          <TeamMember
-            currentEmployer={teamMember.currentEmployer}
-            employeeNumber={teamMember.employeeNumber}
-            firstName={teamMember.firstName}
-            lastName={teamMember.lastName}
-            role={teamMember.role}
-            startingDate={teamMember.startingDate}
-          />
-        </React.Fragment>
+        <TeamMember
+          currentEmployer={teamMember.currentEmployer}
+          employeeNumber={teamMember.employeeNumber}
+          firstName={teamMember.firstName}
+          key={teamMember.id}
+          lastName={teamMember.lastName}
+          role={teamMember.role}
+          startingDate={teamMember.startingDate}
+        />
       ))}
     </>
   );

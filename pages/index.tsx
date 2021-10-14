@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { getTimeEntries, postTimeEntries } from "../services/time-entries-api";
+import { getTimeEntries, createTimeEntry } from "../services/time-entries-api";
 import { NotFoundError } from "../services/not-found-error";
 import { StoreContext } from "../context/store-context-provider";
 import * as Styled from "../styles/PageWrapper.styled";
@@ -59,7 +59,7 @@ const HomePage = () => {
 
   const addNewTimeEntry = async (newTimeEntry: object) => {
     setIsLoading(true);
-    await postTimeEntries(newTimeEntry);
+    await createTimeEntry(newTimeEntry);
     await fetchTimeEntries();
     setTimeout(() => setIsLoading(false), 1000);
   };

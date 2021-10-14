@@ -5,9 +5,10 @@ import * as Styled from "./TeamMemberForm.styled";
 
 export interface TeamMemberFormProps {
   onSubmit: (newTeamMember: TeamMemberInterface) => void;
+  teamMembers?: TeamMemberInterface[];
 }
 
-const TeamMemberForm = ({ onSubmit }: TeamMemberFormProps) => {
+const TeamMemberForm = ({ onSubmit, teamMembers }: TeamMemberFormProps) => {
   const [newTeamMember, setNewTeamMember] = useState<TeamMemberInterface>({});
 
   useEffect(() => {
@@ -23,9 +24,9 @@ const TeamMemberForm = ({ onSubmit }: TeamMemberFormProps) => {
     const formattedResponse = {
       firstName: newTeamMember.firstName,
       lastName: newTeamMember.lastName,
-      employeeNumber: "HUM_001",
+      employeeNumber: `HUM_00${teamMembers.length + 1}`,
       currentEmployer: "Humanoids",
-      startingDate: "01-10-2021",
+      startingDate: "October 2021",
     };
     onSubmit(formattedResponse);
     setNewTeamMember({});
