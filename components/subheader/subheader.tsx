@@ -9,8 +9,8 @@ interface SubheaderProps {
 
 const Subheader = ({ description, title }: SubheaderProps) => (
   <Styled.SubheaderWrapper>
-    <Styled.CurrentPageName>{title}</Styled.CurrentPageName>
-    {description && <Styled.CurrentPageCount>{description}</Styled.CurrentPageCount>}
+    <Styled.Title>{title}</Styled.Title>
+    {description && <Styled.Description>{description}</Styled.Description>}
   </Styled.SubheaderWrapper>
 );
 

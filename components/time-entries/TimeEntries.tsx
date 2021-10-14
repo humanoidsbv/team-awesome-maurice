@@ -2,7 +2,18 @@ import React from "react";
 
 import TimeEntry from "../time-entry/TimeEntry";
 import TimeEntryDate from "../time-entry-date/TimeEntryDate";
-import { TimeEntryInterface } from "../interface";
+
+export interface TimeEntryInterface {
+  activity?: string;
+  client?: string;
+  date?: number;
+  employer?: string;
+  endTime?: string;
+  id?: number;
+  startTime?: string;
+  timeFrom?: number;
+  timeTo?: number;
+}
 
 interface TimeEntriesProps {
   fetchTimeEntries?: () => void;

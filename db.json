@@ -48,6 +48,14 @@
       "employeeNumber": "HUM_003",
       "currentEmployer": "N.M.D.",
       "startingDate": "October 2021"
+    },
+    {
+      "firstName": "Maurice",
+      "lastName": "Merksleg",
+      "employeeNumber": "HUM_001",
+      "currentEmployer": "Humanoids",
+      "startingDate": "01-10-2021",
+      "id": 4
     }
   ]
 }

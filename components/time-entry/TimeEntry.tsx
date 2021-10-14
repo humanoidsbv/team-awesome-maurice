@@ -1,7 +1,7 @@
 import React from "react";
 
 import { deleteTimeEntries } from "../../services/time-entries-api";
-import { TimeEntryInterface } from "../interface";
+import { TimeEntryInterface } from "../../services/form-interfaces";
 import * as Styled from "./TimeEntry.styled";
 import DeleteButton from "../delete-button/DeleteButton";
 
@@ -44,6 +44,6 @@ const TimeEntry = ({ fetchTimeEntries, isBottom, isCenter, isTop, timeEntry }: T
       </Styled.TimeEntry>
     </Styled.TimeEntryWrapper>
   );
-}
+};
 
 export default TimeEntry;

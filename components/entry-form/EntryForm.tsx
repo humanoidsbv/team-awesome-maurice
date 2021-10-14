@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-import { TimeEntryInterface } from "../interface";
+import { TimeEntryInterface } from "../../services/form-interfaces";
 import * as Styled from "./EntryForm.styled";
 import Button from "../button/Button";
 
@@ -116,13 +116,13 @@ const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
           />
         </Styled.InputElementWrapper>
         <Styled.ButtonWrapper>
-          <Button buttonType="secondary" isDisabled={!enableSubmit}>
+          <Button fullWidth desktopWidth disabled={!enableSubmit}>
             Add
           </Button>
         </Styled.ButtonWrapper>
       </Styled.EntryFormWrapper>
     </>
   );
-}
+};
 
 export default EntryForm;

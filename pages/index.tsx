@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { getTimeEntries, postTimeEntries } from "../services/time-entries-api";
 import { NotFoundError } from "../services/not-found-error";
 import { StoreContext } from "../context/store-context-provider";
-import * as Styled from "../styles/pagewrapper.styled";
+import * as Styled from "../styles/PageWrapper.styled";
 import AddIcon from "../components/add-icon/AddIconWrapper";
 import Button from "../components/button/Button";
 import EntryForm from "../components/entry-form/EntryForm";
@@ -24,7 +24,7 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [timeEntries, setTimeEntries] = useContext(StoreContext).timeEntries;
-  
+
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -70,18 +70,17 @@ const HomePage = () => {
       <Subheader description={`${timeEntries.length} entries`} title="Time entries" />
       <Styled.PageWrapper>
         {!isOpen && (
-          <Button buttonType="primary" onClick={handleClick}>
+          <Button primary fullWidth isHiddenOnDesktop onClick={handleClick}>
             <AddIcon />
             New Time Entry
           </Button>
         )}
         <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
         {isLoading && <Loading />}
-        {!isLoading && timeEntries.length ? (
+        {!isLoading && timeEntries.length && (
           <TimeEntries fetchTimeEntries={fetchTimeEntries} timeEntries={timeEntries} />
-        ) : (
-          <FetchErrorMessage message={errorMessage} />
         )}
+        {!isLoading && !timeEntries.length && <FetchErrorMessage message={errorMessage} />}
       </Styled.PageWrapper>
     </>
   );

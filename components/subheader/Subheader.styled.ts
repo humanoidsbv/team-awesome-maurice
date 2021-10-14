@@ -14,7 +14,7 @@ export const SubheaderWrapper = styled.div`
   }
 `;
 
-export const CurrentPageName = styled.h1`
+export const Title = styled.h1`
   color: #354052;
   font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 18px;
@@ -22,7 +22,7 @@ export const CurrentPageName = styled.h1`
   margin-left: 30px;
 `;
 
-export const CurrentPageCount = styled.p`
+export const Description = styled.p`
   border-left: 1px solid #dfe3e9;
   color: #7f8fa4;
   font-family: ${({ theme }) => theme.fontPrimary};

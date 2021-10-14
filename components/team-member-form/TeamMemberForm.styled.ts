@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TeamMemberForm = styled.form`
+export const TeamMemberForm = styled.form<{ onCancel?: boolean }>`
   border: solid 1px #e6eaee;
   border-left: solid 4px #4f88ef !important;
   border-top-left-radius: 0px;
@@ -8,12 +8,20 @@ export const TeamMemberForm = styled.form`
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;
   position: relative;
-  margin-top: 100px; // for dev purposes, check later whether should delete
+  margin-top: 70px; // for dev purposes, check later whether should delete
+
+  @media (${({ theme }) => theme.mobile}) {
+    display: none;
+  }
 `;
 
 export const TeamMemberFormWrapper = styled.div`
   display: flex;
   margin: 85px 30px 43px 30px;
+
+  @media (${({ theme }) => theme.mobile}) {
+    display: none;
+  }
 `;
 
 export const AvatarWrapper = styled.div`

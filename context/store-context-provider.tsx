@@ -1,26 +1,21 @@
 import React, { createContext, useState } from "react";
 
-import { TimeEntryInterface } from "../components/interface";
+import { TimeEntryInterface } from "../services/form-interfaces";
 
 interface StoreContextProps {
-	timeEntries: [
-		timeEntries: TimeEntryInterface[],
-		setTimeEntries: Function
-	]
+  timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
 }
 
 interface StoreProviderProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const StoreContext = createContext<StoreContextProps>(null);
 
 export const StoreProvider = ({ children }: StoreProviderProps) => {
-	const store = {
-		timeEntries: useState([]),
-	};
+  const store = {
+    timeEntries: useState([]),
+  };
 
-	return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
+  return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;
 };
-
-

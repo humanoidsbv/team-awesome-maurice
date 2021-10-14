@@ -11,11 +11,16 @@ export interface TimeEntryInterface {
 }
 
 export interface TeamMemberInterface {
+  address?: string;
+  bio?: string;
   currentEmployer?: string;
+  email?: string;
   employeeNumber?: string;
   firstName?: string;
   id?: number;
   lastName?: string;
+  locality?: string;
   role?: string;
   startingDate?: string;
+  zipCode?: string;
 }

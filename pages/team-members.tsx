@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import * as Styled from "../styles/pagewrapper.styled";
-import AddIcon from "../components/add-icon/AddIconWrapper";
-import Button from "../components/button/Button";
+import { ErrorMessageProps } from "./index";
+import { getTeamMembers, postTeamMembers } from "../services/team-members-api";
+import { NotFoundError } from "../services/not-found-error";
+import * as Styled from "../styles/PageWrapper.styled";
 import Header from "../components/header/Header";
 import Subheader from "../components/subheader/Subheader";
 import TeamMemberForm from "../components/team-member-form/TeamMemberForm";
 import TeamMembers from "../components/team-members/TeamMembers";
 import TeamMembersHeading from "../components/team-members-heading/TeamMembersHeading";
-import { getTeamMembers } from "../services/team-members-api";
-import { NotFoundError } from "../services/not-found-error";
-import { ErrorMessageProps } from "./index";
-
 
 const TeamMembersPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,7 +30,7 @@ const TeamMembersPage = () => {
       });
       return;
     }
-    
+
     if (response.length === 0) {
       setErrorMessage({
         error: "No entries have been found yet",
@@ -48,19 +45,18 @@ const TeamMembersPage = () => {
     fetchTeamMembers();
   }, []);
 
+  const addNewTeamMember = async (newTeamMember: object) => {
+    await postTeamMembers(newTeamMember);
+    await fetchTeamMembers();
+  };
+
   return (
     <>
       <Header />
       <Subheader title="Team members" description={`${teamMembers.length} humanoids`} />
       <Styled.PageWrapper>
-        {!isOpen && (
-          <Button buttonType="primary" onClick={handleClick}>
-            <AddIcon />
-            New Humanoid
-          </Button>
-        )}
-        <TeamMembersHeading handleClick={handleClick} />
-        {isOpen && <TeamMemberForm />}
+        <TeamMembersHeading handleClick={handleClick} isOpen={isOpen} />
+        {isOpen && <TeamMemberForm onSubmit={addNewTeamMember} />}
         <TeamMembers teamMembers={teamMembers} />
       </Styled.PageWrapper>
     </>
