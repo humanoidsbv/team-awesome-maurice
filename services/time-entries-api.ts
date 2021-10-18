@@ -22,7 +22,7 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
 export async function createTimeEntry(
   newTimeEntry: TimeEntryInterface,
 ): Promise<TimeEntryInterface[]> {
-  return fetch("http://localhost:3004/time-entries", {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export async function createTimeEntry(
 }
 
 export async function deleteTimeEntries(id: number) {
-  return fetch(`http://localhost:3004/time-entries/${id}`, {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

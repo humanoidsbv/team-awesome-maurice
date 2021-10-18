@@ -5,12 +5,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: bello-script;
     src: url(/fonts/bello-script.ttf);
 }
-
   @font-face {
     font-family: Proxima Nova;
     src: url(/fonts/proxima-nova-regular.woff);
 }
-
   * {
     box-sizing: border-box;
     margin: 0;
