@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
-export const ButtonPrimary = styled.button`
+export const Button = styled.button<{
+  desktopWidthMini?: boolean;
+  fullWidth?: boolean;
+  isHiddenOnDesktop?: boolean;
+  primary?: boolean;
+  secondary?: boolean;
+}>`
   align-items: center;
-  background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
   border-radius: 4px;
-  border: solid 1px #249533;
   color: #fff;
   cursor: pointer;
   display: flex;
@@ -13,15 +17,6 @@ export const ButtonPrimary = styled.button`
   font-weight: 500;
   height: 36px;
   justify-content: center;
-  width: 100%;
-
-  @media (${({ theme }) => theme.desktop}) {
-    display: none;
-  }
-`;
-
-export const ButtonSecondary = styled(ButtonPrimary)`
-  margin-top: 42px;
 
   :disabled {
     background: #cccccc;
@@ -30,11 +25,36 @@ export const ButtonSecondary = styled(ButtonPrimary)`
   }
 
   @media (${({ theme }) => theme.desktop}) {
-    display: flex;
-    height: 36px;
-    margin-left: auto;
-    margin-top: 0;
-    width: 90px;
+    display: ${({ isHiddenOnDesktop }) => (isHiddenOnDesktop === true ? "none" : "")};
+  }
+
+  @media (${({ theme }) => theme.mobile}) {
+    width: ${({ fullWidth }) => (fullWidth === true ? "100%" : "")};
+  }
+
+  ${(props) =>
+    props.primary &&
+    `
+    background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
+    border: solid 1px #249533;
+  `};
+
+  @media (${({ theme }) => theme.desktop}) {
+    ${(props) =>
+      props.desktopWidthMini &&
+      `
+      width: 90px;
+    `}
+  }
+
+  @media (${({ theme }) => theme.desktop}) {
+    ${(props) =>
+      props.secondary &&
+      `
+        background-color: #f5f7f9;
+        border: solid 1px #ced0da;
+        color: #4b5464;
+        width: 100px;
+      `}
   }
 `;
-

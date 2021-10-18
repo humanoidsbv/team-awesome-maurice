@@ -4,23 +4,43 @@ import * as Styled from "./Button.styled";
 
 interface ButtonProps {
   children: React.ReactNode;
-  isDisabled?: boolean;
+  desktopWidthMini?: boolean;
+  disabled?: boolean;
+  form?: string;
+  fullWidth?: boolean;
+  isHiddenOnDesktop?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  buttonType?: "primary" | "secondary";
+  primary?: boolean;
+  secondary?: boolean;
 }
 
-const Button = ({ children, buttonType, isDisabled, onClick }: ButtonProps) => {
+const Button = ({
+  children,
+  desktopWidthMini,
+  disabled,
+  form,
+  fullWidth,
+  isHiddenOnDesktop,
+  onClick,
+  primary,
+  secondary,
+}: ButtonProps) => {
   return (
     <>
-      {buttonType === "primary" ? (
-        <Styled.ButtonPrimary onClick={onClick}>{children}</Styled.ButtonPrimary>
-      ) : (
-        <Styled.ButtonSecondary onClick={onClick} type="submit" disabled={isDisabled}>
-          {children}
-        </Styled.ButtonSecondary>
-      )}
+      <Styled.Button
+        desktopWidthMini={desktopWidthMini}
+        disabled={disabled}
+        form={form}
+        fullWidth={fullWidth}
+        isHiddenOnDesktop={isHiddenOnDesktop}
+        onClick={onClick}
+        primary={primary}
+        secondary={secondary}
+      >
+        {children}
+      </Styled.Button>
     </>
   );
-}
+};
 
 export default Button;

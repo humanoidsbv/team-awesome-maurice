@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FirstPageWrapper = styled.div`
+export const PageWrapper = styled.div`
   padding: 24px 16px;
   max-width: 100%;
 

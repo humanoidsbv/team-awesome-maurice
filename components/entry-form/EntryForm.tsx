@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-import { TimeEntryInterface } from "../interface";
+import { TimeEntryInterface } from "../../types/form-interfaces";
 import * as Styled from "./EntryForm.styled";
 import Button from "../button/Button";
 
@@ -15,14 +15,14 @@ export interface FormValidation {
 }
 
 const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
-  const [enableSubmit, setEnableSubmit] = useState<boolean>(false);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [formValidity, setFormValidity] = useState<FormValidation>({});
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntryInterface>({});
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [event.target.name]: event.target.value });
-    setEnableSubmit(formRef.current?.checkValidity());
+    setIsFormValid(formRef.current?.checkValidity());
     event.preventDefault();
   };
 
@@ -35,7 +35,7 @@ const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
     };
     onSubmit(formattedResponse);
     setNewTimeEntry({});
-    setEnableSubmit(false);
+    setIsFormValid(false);
   };
 
   const checkValidity = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,12 +115,14 @@ const EntryForm = ({ isOpen, onClose, onSubmit }: EntryFormProps) => {
             value={newTimeEntry.timeTo ?? ""}
           />
         </Styled.InputElementWrapper>
-        <Button buttonType="secondary" isDisabled={!enableSubmit}>
-          Add
-        </Button>
+        <Styled.ButtonWrapper>
+          <Button fullWidth desktopWidthMini disabled={!isFormValid}>
+            Add
+          </Button>
+        </Styled.ButtonWrapper>
       </Styled.EntryFormWrapper>
     </>
   );
-}
+};
 
 export default EntryForm;

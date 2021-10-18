@@ -4,7 +4,7 @@ export const EntryFormWrapper = styled.form<{ isOpen?: boolean }>`
   background-color: #f5f8fa;
   border: solid 1px #e6eaee;
   border-radius: 4px;
-  display: ${(props) => props.isOpen ? "flex": "none"};
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -19,6 +19,10 @@ export const EntryFormWrapper = styled.form<{ isOpen?: boolean }>`
     flex-direction: row;
     height: 94px;
     justify-content: flex-start;
+
+    > button {
+      margin-left: auto;
+    }
   }
 `;
 
@@ -90,5 +94,16 @@ export const FormTitle = styled.h1`
 
   @media (${({ theme }) => theme.mobile}) {
     display: none;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  @media (${({ theme }) => theme.mobile}) {
+    margin-top: 42px;
+    width: 100%;
+  }
+
+  @media (${({ theme }) => theme.desktop}) {
+    margin-left: auto;
   }
 `;

@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/router";
 
 import * as Styled from "./Navigation.styled";
 
@@ -7,29 +9,37 @@ interface NavigationProps {
 }
 
 const Navigation = ({ isActive }: NavigationProps) => {
+  const router = useRouter();
+
   return (
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>
-        <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem selected href="#">
-            Timesheets
-          </Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
-          <Styled.NavigationMenuItem href="#">Team members</Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
+        <Styled.NavigationMenuListItem>
+          <Link href="/">
+            <Styled.NavigationMenuItem selected={router.pathname === "/"}>
+              Timesheets
+            </Styled.NavigationMenuItem>
+          </Link>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
+          <Link href="/team-members">
+            <Styled.NavigationMenuItem selected={router.pathname === "/team-members"}>
+              Team members
+            </Styled.NavigationMenuItem>
+          </Link>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
           <Styled.NavigationMenuItem href="#">Projects</Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
           <Styled.NavigationMenuItem href="#">Clients</Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
           <Styled.NavigationMenuItem href="#">Documents</Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
       </Styled.NavigationMenu>
     </Styled.Navigation>
   );
-}
+};
 
 export default Navigation;

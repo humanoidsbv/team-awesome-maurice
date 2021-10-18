@@ -1,19 +1,17 @@
 import React from "react";
 
 import * as Styled from "./Subheader.styled";
-import { TimeEntryInterface } from "../interface";
 
 interface SubheaderProps {
-  timeEntries: TimeEntryInterface[]
+  description?: string;
+  title: string;
 }
 
-const Subheader = ({ timeEntries }: SubheaderProps) => {
-  return (
-    <Styled.SubheaderWrapper>
-      <Styled.CurrentPageName>Time Entries</Styled.CurrentPageName>
-      <Styled.CurrentPageCount>{`${timeEntries.length} entries`}</Styled.CurrentPageCount>
-    </Styled.SubheaderWrapper>
-  );
-}
+const Subheader = ({ description, title }: SubheaderProps) => (
+  <Styled.SubheaderWrapper>
+    <Styled.Title>{title}</Styled.Title>
+    {description && <Styled.Description>{description}</Styled.Description>}
+  </Styled.SubheaderWrapper>
+);
 
 export default Subheader;
