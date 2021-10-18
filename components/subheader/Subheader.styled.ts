@@ -8,7 +8,6 @@ export const SubheaderWrapper = styled.div`
   margin-top: 30px;
   padding-bottom: 25px;
   width: 100vw;
-
   @media (${({ theme }) => theme.mobile}) {
     display: none;
   }
