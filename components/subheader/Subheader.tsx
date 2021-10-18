@@ -3,7 +3,7 @@ import React from "react";
 import * as Styled from "./Subheader.styled";
 
 interface SubheaderProps {
-  description: string; 
+  description?: string;
   title: string;
 }
 

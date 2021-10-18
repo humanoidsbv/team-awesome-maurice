@@ -1,5 +1,5 @@
 import { NotFoundError } from "./not-found-error";
-import { TeamMemberInterface } from "./form-interfaces";
+import { TeamMemberInterface } from "../types/form-interfaces";
 
 export async function getTeamMembers() {
   return fetch("http://localhost:3004/team-members", {

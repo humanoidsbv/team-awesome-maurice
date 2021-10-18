@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { ErrorMessageProps } from "./index";
 import { getTeamMembers, createTeamMember } from "../services/team-members-api";
 import { NotFoundError } from "../services/not-found-error";
-import * as Styled from "../styles/PageWrapper.styled";
 import Header from "../components/header/Header";
+import PageWrapper from "../components/page-wrapper/PageWrapper";
 import Subheader from "../components/subheader/Subheader";
 import TeamMemberForm from "../components/team-member-form/TeamMemberForm";
 import TeamMembers from "../components/team-members/TeamMembers";
@@ -54,11 +54,11 @@ const TeamMembersPage = () => {
     <>
       <Header />
       <Subheader title="Team members" description={`${teamMembers.length} humanoids`} />
-      <Styled.PageWrapper>
+      <PageWrapper>
         <TeamMembersHeading handleClick={handleClick} isOpen={isOpen} />
         {isOpen && <TeamMemberForm onSubmit={addNewTeamMember} teamMembers={teamMembers} />}
         <TeamMembers teamMembers={teamMembers} />
-      </Styled.PageWrapper>
+      </PageWrapper>
     </>
   );
 };

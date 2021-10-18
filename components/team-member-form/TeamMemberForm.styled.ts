@@ -5,7 +5,7 @@ export const TeamMemberForm = styled.form<{ onCancel?: boolean }>`
   border-left: solid 4px #4f88ef !important;
   border-radius: 0 4px 4px 4px;
   position: relative;
-  margin-top: 70px; // for dev purposes, check later whether should delete
+  margin-top: 70px;
 
   @media (${({ theme }) => theme.mobile}) {
     display: none;
@@ -41,6 +41,8 @@ export const ChangeAvatarOption = styled.a`
 
 export const TitleWrapper = styled.div`
   background-color: #fff;
+  border: solid 1px #e6eaee;
+  border-bottom: none;
   border-left: solid 4px #4f88ef !important;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -48,8 +50,6 @@ export const TitleWrapper = styled.div`
   left: -4px;
   position: absolute;
   top: -48px;
-
-  border-bottom: none;
 `;
 
 export const Title = styled.h3`

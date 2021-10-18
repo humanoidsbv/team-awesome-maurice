@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button<{
-  desktopWidth?: boolean;
+  desktopWidthMini?: boolean;
   fullWidth?: boolean;
   isHiddenOnDesktop?: boolean;
   primary?: boolean;
@@ -41,7 +41,7 @@ export const Button = styled.button<{
 
   @media (${({ theme }) => theme.desktop}) {
     ${(props) =>
-      props.desktopWidth &&
+      props.desktopWidthMini &&
       `
       width: 90px;
     `}

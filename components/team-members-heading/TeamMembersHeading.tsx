@@ -28,7 +28,7 @@ const TeamMembersHeading = ({ handleClick, isOpen }: TeamMembersHeadingProps) =>
             <Button secondary onClick={handleClick}>
               Cancel
             </Button>
-            <Button primary desktopWidth form="team-member-form">
+            <Button primary desktopWidthMini form="team-member-form">
               Save
             </Button>
           </Styled.ButtonWrapper>

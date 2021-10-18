@@ -1,4 +1,4 @@
-import { TimeEntryInterface } from "./form-interfaces";
+import { TimeEntryInterface } from "../types/form-interfaces";
 import { NotFoundError } from "./not-found-error";
 
 export async function getTimeEntries(): Promise<TimeEntryInterface[]> {

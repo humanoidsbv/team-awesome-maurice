@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { getTimeEntries, createTimeEntry } from "../services/time-entries-api";
 import { NotFoundError } from "../services/not-found-error";
 import { StoreContext } from "../context/store-context-provider";
-import * as Styled from "../styles/PageWrapper.styled";
+import PageWrapper from "../components/page-wrapper/PageWrapper";
 import AddIcon from "../components/add-icon/AddIconWrapper";
 import Button from "../components/button/Button";
 import EntryForm from "../components/entry-form/EntryForm";
@@ -68,7 +68,7 @@ const HomePage = () => {
     <>
       <Header />
       <Subheader description={`${timeEntries.length} entries`} title="Time entries" />
-      <Styled.PageWrapper>
+      <PageWrapper>
         {!isOpen && (
           <Button primary fullWidth isHiddenOnDesktop onClick={handleClick}>
             <AddIcon />
@@ -81,7 +81,7 @@ const HomePage = () => {
           <TimeEntries fetchTimeEntries={fetchTimeEntries} timeEntries={timeEntries} />
         )}
         {!isLoading && !timeEntries.length && <FetchErrorMessage message={errorMessage} />}
-      </Styled.PageWrapper>
+      </PageWrapper>
     </>
   );
 };

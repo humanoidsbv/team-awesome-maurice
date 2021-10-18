@@ -14,29 +14,29 @@ const Navigation = ({ isActive }: NavigationProps) => {
   return (
     <Styled.Navigation isActive={isActive}>
       <Styled.NavigationMenu>
-        <Styled.NavigationMenuList>
+        <Styled.NavigationMenuListItem>
           <Link href="/">
             <Styled.NavigationMenuItem selected={router.pathname === "/"}>
               Timesheets
             </Styled.NavigationMenuItem>
           </Link>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
           <Link href="/team-members">
             <Styled.NavigationMenuItem selected={router.pathname === "/team-members"}>
               Team members
             </Styled.NavigationMenuItem>
           </Link>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
           <Styled.NavigationMenuItem href="#">Projects</Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
           <Styled.NavigationMenuItem href="#">Clients</Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
-        <Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
+        <Styled.NavigationMenuListItem>
           <Styled.NavigationMenuItem href="#">Documents</Styled.NavigationMenuItem>
-        </Styled.NavigationMenuList>
+        </Styled.NavigationMenuListItem>
       </Styled.NavigationMenu>
     </Styled.Navigation>
   );

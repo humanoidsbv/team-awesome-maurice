@@ -29,7 +29,7 @@ export const NavigationMenu = styled.ul`
   }
 `;
 
-export const NavigationMenuList = styled.li`
+export const NavigationMenuListItem = styled.li`
   cursor: pointer;
   margin-bottom: 26px;
 

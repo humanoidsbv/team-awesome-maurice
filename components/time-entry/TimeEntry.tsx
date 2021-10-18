@@ -1,7 +1,7 @@
 import React from "react";
 
 import { deleteTimeEntries } from "../../services/time-entries-api";
-import { TimeEntryInterface } from "../../services/form-interfaces";
+import { TimeEntryInterface } from "../../types/form-interfaces";
 import * as Styled from "./TimeEntry.styled";
 import DeleteButton from "../delete-button/DeleteButton";
 

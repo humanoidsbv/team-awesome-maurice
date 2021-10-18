@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TeamMemberInterface } from "../../services/form-interfaces";
+import { TeamMemberInterface } from "../../types/form-interfaces";
 
 import * as Styled from "./TeamMemberForm.styled";
 
@@ -21,19 +21,19 @@ const TeamMemberForm = ({ onSubmit, teamMembers }: TeamMemberFormProps) => {
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const formattedResponse = {
+    onSubmit({
+      currentEmployer: "Humanoids",
+      employeeNumber: `HUM_00${teamMembers.length + 1}`,
       firstName: newTeamMember.firstName,
       lastName: newTeamMember.lastName,
-      employeeNumber: `HUM_00${teamMembers.length + 1}`,
-      currentEmployer: "Humanoids",
       startingDate: "October 2021",
-    };
-    onSubmit(formattedResponse);
+    });
     setNewTeamMember({});
   };
 
   return (
     <Styled.TeamMemberForm id="team-member-form" onSubmit={handleSubmit}>
+      {/* id is used to access submit button in TeamMembersHeading component */}
       <Styled.TeamMemberFormWrapper>
         <Styled.TitleWrapper>
           <Styled.Title>Personal details</Styled.Title>
@@ -108,7 +108,7 @@ const TeamMemberForm = ({ onSubmit, teamMembers }: TeamMemberFormProps) => {
               onChange={handleChange}
               required
               type="text"
-              value={newTeamMember.zipCode ?? ""}
+              value={newTeamMember.postalCode ?? ""}
             />
           </Styled.InputElementWrapper>
           <Styled.InputElementWrapper smallWidth>

@@ -22,5 +22,5 @@ export interface TeamMemberInterface {
   locality?: string;
   role?: string;
   startingDate?: string;
-  zipCode?: string;
+  postalCode?: string;
 }

@@ -4,7 +4,7 @@ import * as Styled from "./Button.styled";
 
 interface ButtonProps {
   children: React.ReactNode;
-  desktopWidth?: boolean;
+  desktopWidthMini?: boolean;
   disabled?: boolean;
   form?: string;
   fullWidth?: boolean;
@@ -16,7 +16,7 @@ interface ButtonProps {
 
 const Button = ({
   children,
-  desktopWidth,
+  desktopWidthMini,
   disabled,
   form,
   fullWidth,
@@ -28,7 +28,7 @@ const Button = ({
   return (
     <>
       <Styled.Button
-        desktopWidth={desktopWidth}
+        desktopWidthMini={desktopWidthMini}
         disabled={disabled}
         form={form}
         fullWidth={fullWidth}

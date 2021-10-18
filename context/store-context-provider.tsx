@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-import { TimeEntryInterface } from "../services/form-interfaces";
+import { TimeEntryInterface } from "../types/form-interfaces";
 
 interface StoreContextProps {
   timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
