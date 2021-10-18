@@ -44,7 +44,7 @@ const HomePage = () => {
     if (response.length === 0) {
       setErrorMessage({
         error: "No entries have been found yet",
-        submessage: "Enter your first Time Entry 😎",
+        submessage: "Enter your first Time Entry 🤓",
         type: "empty",
       });
     }
