@@ -4,24 +4,24 @@ import * as Styled from "./Filter.styled";
 import { ClientInterface } from "../../types/form-interfaces";
 
 export interface FilterProps {
-  setActiveFilter?: (filter: string) => void;
+  setActiveClientFilter?: (filter: string) => void;
   clients: ClientInterface[];
 }
 
-const Filter = ({ clients, setActiveFilter }: FilterProps) => {
+const Filter = ({ clients, setActiveClientFilter }: FilterProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setActiveFilter(event.target.value);
+    setActiveClientFilter(event.target.value);
   };
 
   return (
-    <Styled.FilterSelectGroup name="clients" onChange={handleChange}>
-      <Styled.FilterSelectOption value="">All clients</Styled.FilterSelectOption>
+    <Styled.FilterSelect name="clients" onChange={handleChange}>
+      <Styled.FilterOption value="">All clients</Styled.FilterOption>
       {clients.map((client) => (
-        <Styled.FilterSelectOption value={client.name} key={client.id}>
+        <Styled.FilterOption value={client.name} key={client.id}>
           {client.name}
-        </Styled.FilterSelectOption>
+        </Styled.FilterOption>
       ))}
-    </Styled.FilterSelectGroup>
+    </Styled.FilterSelect>
   );
 };
 
