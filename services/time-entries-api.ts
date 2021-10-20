@@ -2,7 +2,7 @@ import { TimeEntryInterface } from "../types/form-interfaces";
 import { NotFoundError } from "./not-found-error";
 
 export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
-  return fetch("http://localhost:3004/time-entries?_sort=startTime&_order=asc", {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries?_sort=startTime&order=asc`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

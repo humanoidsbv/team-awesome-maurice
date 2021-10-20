@@ -24,3 +24,8 @@ export interface TeamMemberInterface {
   startingDate?: string;
   postalCode?: string;
 }
+
+export interface ClientInterface {
+  id?: number;
+  name?: string;
+}
