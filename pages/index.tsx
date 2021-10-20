@@ -8,7 +8,7 @@ import AddIcon from "../components/add-icon/AddIconWrapper";
 import Button from "../components/button/Button";
 import EntryForm from "../components/entry-form/EntryForm";
 import FetchErrorMessage from "../components/error-handling/ErrorMessage";
-import Filter from "../components/filter-function/Filter";
+import Filter from "../components/filter/Filter";
 import Header from "../components/header/Header";
 import Loading from "../components/loading/Loading";
 import PageWrapper from "../components/page-wrapper/PageWrapper";
