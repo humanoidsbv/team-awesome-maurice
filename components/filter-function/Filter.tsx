@@ -14,14 +14,14 @@ const Filter = ({ clients, setActiveFilter }: FilterProps) => {
   };
 
   return (
-    <Styled.FilterSelectGroup name="clients" onChange={handleChange}>
-      <Styled.FilterSelectOption value="">All clients</Styled.FilterSelectOption>
+    <Styled.FilterSelect name="clients" onChange={handleChange}>
+      <Styled.FilterOption value="">All clients</Styled.FilterOption>
       {clients.map((client) => (
-        <Styled.FilterSelectOption value={client.name} key={client.id}>
+        <Styled.FilterOption value={client.name} key={client.id}>
           {client.name}
-        </Styled.FilterSelectOption>
+        </Styled.FilterOption>
       ))}
-    </Styled.FilterSelectGroup>
+    </Styled.FilterSelect>
   );
 };
 

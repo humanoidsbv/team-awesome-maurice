@@ -22,7 +22,7 @@ export interface ErrorMessageProps {
 }
 
 const HomePage = () => {
-  const [activeFilter, setActiveFilter] = useState("");
+  const [activeClientFilter, setActiveClientFilter] = useState("");
   const [clients, setClients] = useState([]);
   const [errorMessage, setErrorMessage] = useState<ErrorMessageProps>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -30,7 +30,7 @@ const HomePage = () => {
   const [timeEntries, setTimeEntries] = useContext(StoreContext).timeEntries;
 
   const filteredTimeEntries = timeEntries.filter((timeEntry) =>
-    activeFilter === "" ? true : timeEntry.client === activeFilter,
+    activeClientFilter === "" ? true : timeEntry.client === activeClientFilter,
   );
 
   const handleClick = () => {
@@ -89,7 +89,7 @@ const HomePage = () => {
             New Time Entry
           </Button>
         )}
-        <Filter clients={clients} setActiveFilter={setActiveFilter} />
+        <Filter clients={clients} setActiveClientFilter={setActiveClientFilter} />
         <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={addNewTimeEntry} />
         {isLoading && <Loading />}
         {!isLoading && timeEntries.length && (

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FilterSelectGroup = styled.select`
+export const FilterSelect = styled.select`
   border-radius: 4px;
   border: solid 1px #ced0da;
   color: #7f8fa4;
@@ -13,6 +13,6 @@ export const FilterSelectGroup = styled.select`
   }
 `;
 
-export const FilterSelectOption = styled.option`
+export const FilterOption = styled.option`
   text-align: center;
 `;
