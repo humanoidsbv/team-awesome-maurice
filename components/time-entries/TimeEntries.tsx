@@ -1,26 +1,15 @@
 import React from "react";
 
+import { TimeEntryInterface } from "../../types/form-interfaces";
 import TimeEntry from "../time-entry/TimeEntry";
 import TimeEntryDate from "../time-entry-date/TimeEntryDate";
 
-export interface TimeEntryInterface {
-  activity?: string;
-  client?: string;
-  date?: number;
-  employer?: string;
-  endTime?: string;
-  id?: number;
-  startTime?: string;
-  timeFrom?: number;
-  timeTo?: number;
-}
-
 interface TimeEntriesProps {
   fetchTimeEntries?: () => void;
-  timeEntries: TimeEntryInterface[];
+  filteredTimeEntries?: TimeEntryInterface[];
 }
 
-const TimeEntries = ({ fetchTimeEntries, timeEntries }: TimeEntriesProps) => {
+const TimeEntries = ({ fetchTimeEntries, filteredTimeEntries }: TimeEntriesProps) => {
   const timeZone = "nl-NL";
   const dateFormat = {
     day: "numeric",
@@ -30,7 +19,7 @@ const TimeEntries = ({ fetchTimeEntries, timeEntries }: TimeEntriesProps) => {
 
   return (
     <>
-      {timeEntries.map((timeEntry, i, array) => {
+      {filteredTimeEntries.map((timeEntry, i, array) => {
         const currentDate = new Date(timeEntry.startTime).toLocaleDateString(timeZone, dateFormat);
         const previousDate = new Date(array[i - 1]?.startTime).toLocaleDateString(
           timeZone,

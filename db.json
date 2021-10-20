@@ -1,24 +1,30 @@
 {
   "time-entries": [
     {
+      "activity": "Testing",
       "client": "Heineken",
       "endTime": "2020-03-10T16:30:00.000Z",
       "id": 1,
-      "startTime": "2020-03-10T09:30:00.000Z",
-      "activity": "Testing"
+      "startTime": "2020-03-10T09:30:00.000Z"
     },
     {
+      "activity": "Development",
       "client": "Hike One",
       "endTime": "2020-03-12T17:30:00.000Z",
       "id": 3,
-      "startTime": "2020-03-12T09:30:00.000Z",
-      "activity": "Development"
+      "startTime": "2020-03-12T09:30:00.000Z"
     },
     {
       "client": "Humanoids",
       "startTime": "2020-03-11T09:00:00.000Z",
       "endTime": "2020-03-11T17:00:00.000Z",
       "id": 4
+    },
+    {
+      "client": "Humanoids",
+      "startTime": "2020-03-15T09:00:00.000Z",
+      "endTime": "2020-03-15T17:00:00.000Z",
+      "id": 5
     }
   ],
   "team-members": [
@@ -48,6 +54,20 @@
       "employeeNumber": "HUM_003",
       "currentEmployer": "N.M.D.",
       "startingDate": "October 2021"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Humanoids",
+      "id": 100
+    },
+    {
+      "name": "Hike One",
+      "id": 200
+    },
+    {
+      "name": "Heineken",
+      "id": 300
     }
   ]
 }
