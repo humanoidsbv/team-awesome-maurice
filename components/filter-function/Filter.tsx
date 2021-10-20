@@ -4,13 +4,13 @@ import * as Styled from "./Filter.styled";
 import { ClientInterface } from "../../types/form-interfaces";
 
 export interface FilterProps {
-  setActiveFilter?: (filter: string) => void;
+  setActiveClientFilter?: (filter: string) => void;
   clients: ClientInterface[];
 }
 
-const Filter = ({ clients, setActiveFilter }: FilterProps) => {
+const Filter = ({ clients, setActiveClientFilter }: FilterProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setActiveFilter(event.target.value);
+    setActiveClientFilter(event.target.value);
   };
 
   return (
