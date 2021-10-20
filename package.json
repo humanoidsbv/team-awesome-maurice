@@ -8,7 +8,7 @@
     "dev": "next & npm run json-server",
     "json-server": "json-server --watch db.json --port 3004",
     "start": "next start",
-    "test": "jest --watch"
+    "test": "jest --"
   },
   "repository": {
     "type": "git",
