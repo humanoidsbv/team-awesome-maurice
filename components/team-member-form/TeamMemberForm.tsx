@@ -4,6 +4,7 @@ import { TeamMemberInterface } from "../../types/form-interfaces";
 import * as Styled from "./TeamMemberForm.styled";
 
 export interface TeamMemberFormProps {
+  // eslint-disable-next-line no-unused-vars
   onSubmit: (newTeamMember: TeamMemberInterface) => void;
   teamMembers?: TeamMemberInterface[];
 }
