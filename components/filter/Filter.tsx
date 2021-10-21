@@ -17,7 +17,7 @@ const Filter = ({ clients, setActiveClientFilter }: FilterProps) => {
   return (
     <Styled.FilterSelect name="clients" onChange={handleChange}>
       <Styled.FilterOption value="">All clients</Styled.FilterOption>
-      {clients.map((client) => (
+      {clients?.map((client) => (
         <Styled.FilterOption value={client.name} key={client.id}>
           {client.name}
         </Styled.FilterOption>
