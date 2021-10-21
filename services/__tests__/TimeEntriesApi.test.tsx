@@ -1,5 +1,5 @@
 import { getTimeEntries } from "../time-entries-api";
-import { mockedTimeEntries } from "../../fixtures/mockedTimeEntries";
+import { mockedTimeEntries } from "../../__mocks__/mockedTimeEntries";
 
 it("fetches TimeEntries from the server", () => {
   const mockJsonPromise = Promise.resolve(mockedTimeEntries);
