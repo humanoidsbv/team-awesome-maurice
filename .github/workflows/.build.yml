@@ -13,7 +13,8 @@ jobs:
         with:
           node-version: "14.17.6"
 
-      - name: Install and build
+      - name: Install, build and test
         run: |
           npm i
           npm run build
+          npm run test

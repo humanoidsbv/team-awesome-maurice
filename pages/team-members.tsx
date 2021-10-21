@@ -13,7 +13,7 @@ import TeamMembersHeading from "../components/team-members-heading/TeamMembersHe
 const TeamMembersPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [teamMembers, setTeamMembers] = useState([]);
-  const [errorMessage, setErrorMessage] = useState<ErrorMessageProps>();
+  const [, setErrorMessage] = useState<ErrorMessageProps>();
 
   const handleClick = () => {
     setIsOpen(!isOpen);

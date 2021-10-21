@@ -5,16 +5,18 @@ interface TimeEntryDateProps {
   startTime: string;
 }
 
-const TimeEntryDate = ({ startTime }: TimeEntryDateProps) => {
-  const date = new Date(startTime);
+export const formattedDate = (string: string) => {
+  const date = new Date(string);
 
-  const formattedDate = date.toLocaleDateString("nl-NL", {
+  return date.toLocaleDateString("nl-NL", {
     day: "numeric",
     month: "2-digit",
     year: "numeric",
   });
+};
 
-  return <Styled.TimeEntryDate>{formattedDate}</Styled.TimeEntryDate>;
-}
+const TimeEntryDate = ({ startTime }: TimeEntryDateProps) => {
+  return <Styled.TimeEntryDate>{formattedDate(startTime)}</Styled.TimeEntryDate>;
+};
 
 export default TimeEntryDate;
