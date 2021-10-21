@@ -13,6 +13,15 @@ jobs:
         with:
           node-version: "14.17.6"
 
+      - name: Install modules
+        run: npm ci
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm run dev
+
       - name: Install, build and test
         run: |
           npm i

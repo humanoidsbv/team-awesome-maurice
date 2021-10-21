@@ -23,7 +23,10 @@ const Navigation = ({ isActive }: NavigationProps) => {
         </Styled.NavigationMenuListItem>
         <Styled.NavigationMenuListItem>
           <Link href="/team-members">
-            <Styled.NavigationMenuItem selected={router.pathname === "/team-members"}>
+            <Styled.NavigationMenuItem
+              data-cy="TeamMembers"
+              selected={router.pathname === "/team-members"}
+            >
               Team members
             </Styled.NavigationMenuItem>
           </Link>
