@@ -8,7 +8,9 @@ interface NavigationToggleProps {
 }
 
 const NavigationToggle = ({ isActive, onClick }: NavigationToggleProps) => {
-  return <Styled.NavigationToggle isActive={isActive} onClick={onClick} />;
-}
+  return (
+    <Styled.NavigationToggle data-cy="NavigationToggle" isActive={isActive} onClick={onClick} />
+  );
+};
 
 export default NavigationToggle;
