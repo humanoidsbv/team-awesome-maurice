@@ -4,6 +4,7 @@ import * as Styled from "./Filter.styled";
 import { ClientInterface } from "../../types/form-interfaces";
 
 export interface FilterProps {
+  // eslint-disable-next-line no-unused-vars
   setActiveClientFilter?: (filter: string) => void;
   clients: ClientInterface[];
 }

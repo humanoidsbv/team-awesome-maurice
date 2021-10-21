@@ -7,6 +7,7 @@ import Button from "../button/Button";
 export interface EntryFormProps {
   isOpen: boolean;
   onClose?: () => void;
+  // eslint-disable-next-line no-unused-vars
   onSubmit: (newTimeEntry: TimeEntryInterface) => void;
 }
 
